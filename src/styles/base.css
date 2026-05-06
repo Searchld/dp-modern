@@ -3693,3 +3693,341 @@ button {
   height: 0 !important;
   display: none !important;
 }
+
+/* Refined equipment icons: CSS-only silhouettes matched to现场设备图标 */
+.alarm-badge {
+  grid-template-columns: 54px 1fr 20px;
+}
+
+.alarm-icon {
+  width: 50px;
+  height: 50px;
+  overflow: visible;
+  color: #ff4c45;
+  border-radius: 10px 10px 14px 14px;
+  border-color: rgba(255, 122, 98, .46);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.18), transparent 24%),
+    linear-gradient(90deg, rgba(120, 0, 0, .48), rgba(255, 76, 69, .9) 46%, rgba(118, 0, 0, .54));
+  box-shadow:
+    0 8px 0 -4px rgba(42, 5, 5, .92),
+    0 0 0 1px rgba(255,255,255,.16) inset,
+    0 0 16px rgba(255, 48, 38, .45),
+    0 0 16px rgba(0,0,0,.5) inset;
+}
+
+.alarm-icon i {
+  left: 10px;
+  right: 10px;
+  bottom: 13px;
+  height: 31px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-bottom: 0;
+  border-radius: 18px 18px 6px 6px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.32) 0 5px, transparent 5px 11px, rgba(255,255,255,.16) 11px 14px, transparent 14px),
+    radial-gradient(circle at 50% 10%, rgba(255,255,255,.72), transparent 24%),
+    linear-gradient(90deg, #8f0909, #ff463e 44%, #920808);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.18) inset,
+    0 0 12px rgba(255, 50, 42, .7) inset;
+}
+
+.alarm-icon i::before {
+  left: -6px;
+  right: -6px;
+  bottom: -8px;
+  height: 9px;
+  border: 0;
+  border-radius: 0 0 8px 8px;
+  background:
+    linear-gradient(90deg, rgba(50, 0, 0, .72), rgba(255, 120, 110, .82), rgba(54, 0, 0, .72));
+  box-shadow: 0 3px 0 rgba(13, 9, 10, .86);
+}
+
+.alarm-icon i::after {
+  left: 7px;
+  top: 2px;
+  width: 7px;
+  height: 24px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.1));
+  transform: rotate(7deg);
+}
+
+.alarm-icon b {
+  z-index: 3;
+  margin-top: 16px;
+  width: 18px;
+  height: 20px;
+  overflow: hidden;
+  color: rgba(255,255,255,.7);
+  font-size: 0;
+}
+
+.alarm-icon b::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  width: 9px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.alarm-icon b::after {
+  content: "";
+  position: absolute;
+  right: 1px;
+  top: 8px;
+  width: 9px;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 5px 0 currentColor;
+}
+
+.device-emblem {
+  overflow: visible;
+}
+
+.device-emblem.camera i {
+  width: 27px;
+  height: 16px;
+  border: 0;
+  border-radius: 9px 5px 5px 9px;
+  background:
+    radial-gradient(circle at 17% 50%, #050708 0 6px, rgba(255,255,255,.28) 6px 7px, transparent 7px),
+    linear-gradient(180deg, #f8fbff, #cfd5dc 78%, #737b86);
+  box-shadow:
+    -2px 0 0 rgba(0,0,0,.8),
+    0 0 0 1px rgba(255,255,255,.28) inset,
+    0 0 10px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.device-emblem.camera i::before {
+  left: 5px;
+  right: auto;
+  top: 17px;
+  width: 17px;
+  height: 9px;
+  clip-path: none;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(180deg, #7d858d, #eef2f6 55%, #8a929b);
+  transform: skewX(-12deg);
+}
+
+.device-emblem.camera i::after {
+  left: 9px;
+  top: 25px;
+  width: 23px;
+  height: 7px;
+  border: 0;
+  border-radius: 4px 4px 2px 2px;
+  background: linear-gradient(180deg, #f3f6fa, #a7aeb6);
+}
+
+.device-emblem.rfid i {
+  width: 23px;
+  height: 26px;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 3px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.4), transparent 35%),
+    linear-gradient(180deg, #edf0f2, #a8b0b8);
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2) inset;
+}
+
+.device-emblem.rfid i::before {
+  left: 5px;
+  right: auto;
+  top: 5px;
+  width: 11px;
+  height: 14px;
+  border: 1px solid #20262c;
+  border-top-color: #20262c;
+  border-bottom-color: #20262c;
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 3px, rgba(32,38,44,.85) 3px 4px),
+    rgba(238,242,245,.72);
+  opacity: .9;
+}
+
+.device-emblem.rfid i::after {
+  left: 14px;
+  top: 5px;
+  width: 9px;
+  height: 14px;
+  border: 2px solid #20262c;
+  border-left: 0;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 0 16px 16px 0;
+  opacity: .76;
+}
+
+.device-emblem.speaker {
+  color: #ff564b;
+}
+
+.device-emblem.speaker i {
+  left: 12px;
+  bottom: 7px;
+  width: 22px;
+  height: 18px;
+  clip-path: none;
+  border-radius: 2px 2px 5px 5px;
+  background: linear-gradient(145deg, #ff5a4e, #9c1513);
+  filter: drop-shadow(0 0 5px rgba(255, 71, 60, .48));
+}
+
+.device-emblem.speaker i::before {
+  left: 4px;
+  top: -18px;
+  width: 14px;
+  height: 21px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-left: 1px solid rgba(255,255,255,.28);
+  border-radius: 11px 11px 2px 2px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 1px, transparent 1px 4px),
+    linear-gradient(90deg, #b20b0b, #ff4137 48%, #9e0808);
+  opacity: 1;
+}
+
+.device-emblem.speaker i::after {
+  left: -8px;
+  top: 3px;
+  width: 18px;
+  height: 14px;
+  border: 0;
+  border-radius: 14px 0 0 14px;
+  background: radial-gradient(circle at 78% 50%, #ff8a80 0 3px, #d9231c 4px 100%);
+  opacity: 1;
+}
+
+.device-emblem.disk i {
+  width: 28px;
+  height: 20px;
+  border: 0;
+  border-radius: 4px 4px 2px 2px;
+  background:
+    linear-gradient(180deg, #f4f5f6 0 38%, transparent 38%),
+    repeating-linear-gradient(90deg, #9b0c14 0 2px, #350307 2px 4px, #e42e35 4px 5px),
+    linear-gradient(180deg, #f3f4f5, #c9ced2 38%, #a40d14 38% 100%);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.32) inset,
+    0 0 10px color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+.device-emblem.disk i::before {
+  left: 11px;
+  top: 3px;
+  right: auto;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #717980;
+  box-shadow: 11px 1px 0 #28c26a, 16px 1px 0 #e92c2c;
+}
+
+.device-emblem.disk i::after {
+  left: 6px;
+  right: auto;
+  bottom: -4px;
+  width: 5px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: #c7ccd0;
+  box-shadow: 16px 0 0 #c7ccd0;
+}
+
+.car-metric i {
+  width: 42px;
+  height: 22px;
+  border: 0;
+  border-radius: 2px 4px 3px 3px;
+  color: #ff7a22;
+  background:
+    linear-gradient(115deg, transparent 0 12px, rgba(255,255,255,.26) 12px 16px, transparent 16px),
+    linear-gradient(180deg, currentColor, color-mix(in srgb, currentColor 76%, #8b2500));
+  box-shadow:
+    0 5px 0 -3px rgba(0,0,0,.92),
+    0 0 10px color-mix(in srgb, currentColor 30%, transparent);
+}
+
+.car-metric i::before,
+.car-metric i::after {
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  background:
+    radial-gradient(circle, #151719 0 3px, #59616b 3px 5px, #17191c 5px 100%);
+  border: 0;
+}
+
+.car-metric i::before {
+  left: 5px;
+}
+
+.car-metric i::after {
+  right: 5px;
+}
+
+.car-metric.running i {
+  border-radius: 3px 8px 3px 3px;
+}
+
+.car-metric.running i::before {
+  box-shadow:
+    16px 0 0 -1px #17191c,
+    16px 0 0 0 #59616b,
+    16px 0 0 2px #17191c;
+}
+
+.car-metric.idle i {
+  color: #a9adb1;
+  width: 46px;
+  height: 23px;
+  border-radius: 6px 3px 8px 4px;
+  background:
+    linear-gradient(95deg, transparent 0 15px, rgba(255,255,255,.24) 15px 20px, transparent 20px),
+    linear-gradient(180deg, #d4d8dc, #737a80 76%, #464a4f);
+}
+
+.car-total-meter i {
+  inset: 17px;
+  border: 0;
+  border-radius: 0;
+}
+
+.car-total-meter i::before,
+.car-total-meter i::after {
+  top: auto;
+  bottom: 22px;
+  border: 0;
+  opacity: .9;
+  transform: none;
+}
+
+.car-total-meter i::before {
+  left: 17px;
+  width: 46px;
+  height: 25px;
+  border-radius: 4px 10px 4px 4px;
+  background:
+    linear-gradient(116deg, transparent 0 14px, rgba(255,255,255,.3) 14px 19px, transparent 19px),
+    linear-gradient(180deg, #ffcc24, #d89600);
+  box-shadow: 0 8px 0 -5px rgba(0,0,0,.86), 0 0 10px rgba(255, 194, 38, .38);
+}
+
+.car-total-meter i::after {
+  left: 24px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1b1d20 0 3px, #656d74 3px 5px, #151719 5px 100%);
+  box-shadow: 27px 0 0 #151719, 27px 0 0 2px #656d74, 27px 0 0 4px #151719;
+}
