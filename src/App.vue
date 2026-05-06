@@ -81,7 +81,7 @@
           </section>
 
           <section class="panel device-panel">
-            <PanelTitle title="设备运行状态" />
+            <PanelTitle title="设备运行状态" :extra="`在线率 ${deviceOnlineRate}`" />
             <div class="device-list">
               <button v-for="device in state.devices" :key="device.name" class="device-line" @click="openDeviceDetail(device)">
                 <span class="device-emblem" :class="deviceIconClass(device.name)"><i></i></span>
@@ -97,24 +97,34 @@
           </section>
 
           <section class="panel car-panel">
-            <PanelTitle title="矿车统计" />
+            <PanelTitle title="矿车统计" :extra="`车辆工作率 ${carWorkRate}`" />
             <div class="car-dashboard">
               <button class="car-metric running" @click="openCarDetail('运输中', state.cars.online)">
-                <i></i>
                 <strong>{{ state.cars.online }}</strong>
-                <span>运输中(辆)</span>
-                <em :style="{ width: carRatio(state.cars.online) }"></em>
+                <span>运输中（辆）</span>
+                <em>工作占比 {{ carRatio(state.cars.online) }}</em>
               </button>
               <button class="car-total-meter" @click="openCarDetail('总数', state.cars.total)">
                 <i></i>
                 <b>{{ state.cars.total }}</b>
-                <span>总数(辆)</span>
+                <span>总数（辆）</span>
               </button>
               <button class="car-metric idle" @click="openCarDetail('空闲中', state.cars.offline)">
-                <i></i>
                 <strong>{{ state.cars.offline }}</strong>
-                <span>空闲中(辆)</span>
-                <em :style="{ width: carRatio(state.cars.offline) }"></em>
+                <span>空闲中（辆）</span>
+                <em>空闲占比 {{ carRatio(state.cars.offline) }}</em>
+              </button>
+              <button class="car-mini-truck truck-one" @click="openCarDetail('运输中', state.cars.online)">
+                <b>{{ splitCount(state.cars.online, 0) }}</b><i></i>
+              </button>
+              <button class="car-mini-truck truck-two" @click="openCarDetail('运输中', state.cars.online)">
+                <b>{{ splitCount(state.cars.online, 1) }}</b><i></i>
+              </button>
+              <button class="car-mini-truck idle-one" @click="openCarDetail('空闲中', state.cars.offline)">
+                <b>{{ splitCount(state.cars.offline, 0) }}</b><i></i>
+              </button>
+              <button class="car-mini-truck idle-two" @click="openCarDetail('空闲中', state.cars.offline)">
+                <b>{{ splitCount(state.cars.offline, 1) }}</b><i></i>
               </button>
             </div>
           </section>
@@ -854,6 +864,18 @@ const boardStyle = computed(() => ({
 }))
 
 const fallbackCamera = { label: '61号溜井入料口', url: 'about:blank' }
+
+const deviceOnlineRate = computed(() => {
+  const totals = state.devices.reduce((acc, item) => {
+    acc.total += Number(item.total || 0)
+    acc.online += Number(item.online || 0)
+    return acc
+  }, { total: 0, online: 0 })
+  return formatRate(totals.online, totals.total)
+})
+
+const carWorkRate = computed(() => formatRate(state.cars.online, state.cars.total))
+
 const videoGroups = computed(() => {
   const groups = state.live.filter(group => (group.children || []).length)
   return groups.length ? groups : [{ label: '一坑', children: cameras.value.length ? cameras.value : [fallbackCamera] }]
@@ -1668,10 +1690,20 @@ function openCarDetail(label: string, value: number) {
   }
 }
 
-function carRatio(value: number) {
-  const total = Math.max(1, Number(state.cars.total || 0))
-  const ratio = Math.max(0, Math.min(100, Math.round((Number(value || 0) / total) * 100)))
+function formatRate(value: number, total: number) {
+  const safeTotal = Number(total || 0)
+  if (safeTotal <= 0) return '0%'
+  const ratio = Math.max(0, Math.min(100, Math.round((Number(value || 0) / safeTotal) * 100)))
   return `${ratio}%`
+}
+
+function carRatio(value: number) {
+  return formatRate(value, state.cars.total)
+}
+
+function splitCount(value: number, index: 0 | 1) {
+  const count = Math.max(0, Number(value || 0))
+  return index === 0 ? Math.ceil(count / 2) : Math.floor(count / 2)
 }
 
 function openMaterialDetail(item: MaterialLevel) {

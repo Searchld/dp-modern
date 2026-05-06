@@ -1132,156 +1132,143 @@ button {
   position: relative;
   min-height: 0;
   display: grid;
-  grid-template-columns: 1fr 118px 1fr;
+  grid-template-columns: minmax(0, 1fr) 122px minmax(0, 1fr);
+  grid-template-rows: 70px 48px;
   align-items: center;
-  gap: 16px;
-  padding: 16px 24px 18px;
+  gap: 8px 14px;
+  padding: 14px 14px 12px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(3, 20, 35, .08), rgba(0, 0, 0, .12)),
+    radial-gradient(circle at 50% 52%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 42%);
 }
 
 .car-dashboard::before {
   content: "";
   position: absolute;
-  left: 68px;
-  right: 68px;
-  top: 50%;
+  left: 10px;
+  right: 10px;
+  top: 12px;
+  bottom: 10px;
+  border: 1px solid color-mix(in srgb, var(--danger) 72%, transparent);
+  box-shadow: 0 0 18px rgba(255, 42, 40, .16) inset;
+  opacity: .86;
+  pointer-events: none;
+}
+
+.car-dashboard::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  top: 84px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--line), var(--accent), var(--line), transparent);
-  box-shadow: 0 0 12px var(--shadow);
-  opacity: .72;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+  opacity: .66;
   pointer-events: none;
 }
 
 .car-dashboard button {
   position: relative;
   min-width: 0;
-  border: 1px solid var(--line-soft) !important;
+  border: 0 !important;
   color: var(--text);
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.08), transparent 48%),
-    rgba(255,255,255,.03);
-  box-shadow: 0 0 18px rgba(0,0,0,.24) inset;
-  overflow: hidden;
+  background: transparent;
+  overflow: visible;
 }
 
 .car-dashboard button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 16%, transparent), transparent);
-  opacity: 0;
-  transition: opacity .2s ease;
-}
-
-.car-dashboard button:hover::before {
-  opacity: 1;
+  content: none;
 }
 
 .car-metric {
-  height: 82px;
+  height: 52px;
   display: grid;
-  grid-template-columns: 34px 1fr;
-  grid-template-rows: 1fr 18px 5px;
+  grid-template-rows: 1fr auto auto;
   align-items: center;
-  gap: 0 10px;
-  padding: 12px 12px 10px;
-  text-align: left;
-}
-
-.car-metric i {
-  position: relative;
-  grid-row: 1 / 3;
-  width: 32px;
-  height: 24px;
-  border: 2px solid currentColor;
-  border-radius: 7px 7px 5px 5px;
-  color: var(--accent);
+  justify-items: center;
+  padding: 5px 6px 6px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.16) !important;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.12), transparent 42%),
-    rgba(0,0,0,.12);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 24%, transparent);
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.16)),
+    rgba(255,255,255,.035) !important;
+  box-shadow:
+    0 0 12px rgba(0,0,0,.24) inset,
+    0 0 10px color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
-.car-metric i::before,
-.car-metric i::after {
-  content: "";
-  position: absolute;
-  bottom: -7px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--panel-strong);
-  border: 2px solid currentColor;
-}
-
-.car-metric i::before {
-  left: 3px;
-}
-
-.car-metric i::after {
-  right: 3px;
-}
-
-.car-metric strong {
-  align-self: end;
-  color: var(--accent);
-  font-size: 30px;
-  line-height: 1;
-}
-
-.car-metric span {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.car-metric em {
-  grid-column: 1 / 3;
-  align-self: end;
-  height: 4px;
-  max-width: 100%;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 30%, transparent));
-  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 38%, transparent);
+.car-metric.running {
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .car-metric.idle {
+  grid-column: 3;
+  grid-row: 1;
   color: var(--muted);
 }
 
-.car-metric.idle i,
+.car-metric strong {
+  color: var(--accent);
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 42%, transparent);
+}
+
 .car-metric.idle strong {
-  color: var(--muted);
+  color: color-mix(in srgb, var(--muted) 82%, white 18%);
+  text-shadow: none;
 }
 
-.car-metric.idle em {
-  background: linear-gradient(90deg, color-mix(in srgb, var(--muted) 82%, transparent), color-mix(in srgb, var(--muted) 22%, transparent));
-  box-shadow: 0 0 8px color-mix(in srgb, var(--muted) 20%, transparent);
+.car-metric span {
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.1;
+  opacity: .9;
+}
+
+.car-metric em {
+  height: auto;
+  max-width: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1;
+  font-style: normal;
 }
 
 .car-total-meter {
   z-index: 1;
-  width: 118px;
-  height: 118px;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 104px;
+  height: 104px;
   display: grid;
   place-items: center;
   align-content: center;
-  gap: 4px;
+  gap: 5px;
+  justify-self: center;
   border-radius: 50%;
-  border-color: var(--accent) !important;
+  border: 3px solid color-mix(in srgb, var(--accent) 88%, white 12%) !important;
   background:
-    radial-gradient(circle at 50% 50%, var(--panel-strong) 0 43%, transparent 44%),
-    conic-gradient(from -34deg, color-mix(in srgb, var(--accent) 76%, transparent), transparent 34%, color-mix(in srgb, var(--accent) 66%, transparent) 66%, transparent 86%, color-mix(in srgb, var(--accent) 76%, transparent)),
-    rgba(255,255,255,.025);
+    radial-gradient(circle at 50% 50%, rgba(7, 18, 31, .96) 0 58%, transparent 59%),
+    conic-gradient(from -24deg, color-mix(in srgb, var(--accent) 78%, transparent), transparent 30%, color-mix(in srgb, var(--accent) 80%, transparent) 62%, transparent 82%, color-mix(in srgb, var(--accent) 78%, transparent));
   box-shadow:
-    0 0 0 8px rgba(255,255,255,.025),
-    0 0 22px var(--shadow),
-    0 0 24px color-mix(in srgb, var(--accent) 16%, transparent) inset;
+    0 0 0 1px rgba(255,255,255,.12),
+    0 0 20px color-mix(in srgb, var(--accent) 24%, transparent),
+    0 0 28px rgba(0,0,0,.48) inset;
 }
 
 .car-total-meter i {
   position: absolute;
-  inset: 14px;
+  inset: 8px;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
 }
 
 .car-total-meter i::before,
@@ -1289,37 +1276,133 @@ button {
   content: "";
   position: absolute;
   top: 50%;
-  width: 16px;
-  height: 54px;
-  border: 2px solid var(--accent);
-  opacity: .76;
+  width: 10px;
+  height: 46px;
+  border: 2px solid color-mix(in srgb, var(--accent) 76%, transparent);
+  opacity: .72;
   transform: translateY(-50%);
 }
 
 .car-total-meter i::before {
-  left: -26px;
+  left: -20px;
   border-left: 0;
-  border-radius: 0 40px 40px 0;
+  border-radius: 0 30px 30px 0;
 }
 
 .car-total-meter i::after {
-  right: -26px;
+  right: -20px;
   border-right: 0;
-  border-radius: 40px 0 0 40px;
+  border-radius: 30px 0 0 30px;
 }
 
 .car-total-meter b {
   position: relative;
-  color: var(--text);
-  font-size: 38px;
+  color: #f7fbff;
+  font-size: 40px;
   line-height: 1;
-  text-shadow: 0 0 10px var(--shadow);
+  font-weight: 900;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 36%, transparent), 0 2px 8px rgba(0,0,0,.7);
 }
 
 .car-total-meter span {
   position: relative;
-  color: var(--muted);
+  color: #ffffff;
   font-size: 13px;
+  font-weight: 700;
+}
+
+.car-mini-truck {
+  height: 42px;
+  display: grid;
+  grid-template-rows: 14px 24px;
+  justify-items: center;
+  align-items: end;
+  padding: 0;
+}
+
+.car-mini-truck b {
+  color: var(--accent);
+  font-size: 13px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.car-mini-truck i {
+  position: relative;
+  width: 35px;
+  height: 18px;
+  border-radius: 2px 6px 3px 3px;
+  color: #ffba19;
+  background:
+    linear-gradient(115deg, transparent 0 10px, rgba(255,255,255,.28) 10px 14px, transparent 14px),
+    linear-gradient(180deg, currentColor, color-mix(in srgb, currentColor 72%, #7d3b00));
+  filter: drop-shadow(0 0 5px color-mix(in srgb, currentColor 28%, transparent));
+}
+
+.car-mini-truck i::before,
+.car-mini-truck i::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #14171a 0 3px, #636b73 3px 4px, #151719 4px 100%);
+}
+
+.car-mini-truck i::before {
+  left: 4px;
+}
+
+.car-mini-truck i::after {
+  right: 4px;
+}
+
+.car-mini-truck.truck-one,
+.car-mini-truck.truck-two {
+  grid-row: 2;
+}
+
+.car-mini-truck.truck-one {
+  grid-column: 1;
+  justify-self: start;
+  margin-left: 16px;
+}
+
+.car-mini-truck.truck-two {
+  grid-column: 1;
+  justify-self: end;
+  margin-right: 10px;
+}
+
+.car-mini-truck.idle-one,
+.car-mini-truck.idle-two {
+  grid-row: 2;
+}
+
+.car-mini-truck.idle-one {
+  grid-column: 3;
+  justify-self: start;
+  margin-left: 10px;
+}
+
+.car-mini-truck.idle-two {
+  grid-column: 3;
+  justify-self: end;
+  margin-right: 16px;
+}
+
+.car-mini-truck.idle-one b,
+.car-mini-truck.idle-two b {
+  color: color-mix(in srgb, var(--muted) 78%, white 22%);
+}
+
+.car-mini-truck.idle-one i,
+.car-mini-truck.idle-two i {
+  color: #9ea4aa;
+  background:
+    linear-gradient(95deg, transparent 0 12px, rgba(255,255,255,.24) 12px 16px, transparent 16px),
+    linear-gradient(180deg, #d7dadf, #777f87 76%, #4d5358);
 }
 
 .video-panel {
@@ -3942,92 +4025,4 @@ button {
   border-radius: 0 0 3px 3px;
   background: #c7ccd0;
   box-shadow: 16px 0 0 #c7ccd0;
-}
-
-.car-metric i {
-  width: 42px;
-  height: 22px;
-  border: 0;
-  border-radius: 2px 4px 3px 3px;
-  color: #ff7a22;
-  background:
-    linear-gradient(115deg, transparent 0 12px, rgba(255,255,255,.26) 12px 16px, transparent 16px),
-    linear-gradient(180deg, currentColor, color-mix(in srgb, currentColor 76%, #8b2500));
-  box-shadow:
-    0 5px 0 -3px rgba(0,0,0,.92),
-    0 0 10px color-mix(in srgb, currentColor 30%, transparent);
-}
-
-.car-metric i::before,
-.car-metric i::after {
-  bottom: -6px;
-  width: 10px;
-  height: 10px;
-  background:
-    radial-gradient(circle, #151719 0 3px, #59616b 3px 5px, #17191c 5px 100%);
-  border: 0;
-}
-
-.car-metric i::before {
-  left: 5px;
-}
-
-.car-metric i::after {
-  right: 5px;
-}
-
-.car-metric.running i {
-  border-radius: 3px 8px 3px 3px;
-}
-
-.car-metric.running i::before {
-  box-shadow:
-    16px 0 0 -1px #17191c,
-    16px 0 0 0 #59616b,
-    16px 0 0 2px #17191c;
-}
-
-.car-metric.idle i {
-  color: #a9adb1;
-  width: 46px;
-  height: 23px;
-  border-radius: 6px 3px 8px 4px;
-  background:
-    linear-gradient(95deg, transparent 0 15px, rgba(255,255,255,.24) 15px 20px, transparent 20px),
-    linear-gradient(180deg, #d4d8dc, #737a80 76%, #464a4f);
-}
-
-.car-total-meter i {
-  inset: 17px;
-  border: 0;
-  border-radius: 0;
-}
-
-.car-total-meter i::before,
-.car-total-meter i::after {
-  top: auto;
-  bottom: 22px;
-  border: 0;
-  opacity: .9;
-  transform: none;
-}
-
-.car-total-meter i::before {
-  left: 17px;
-  width: 46px;
-  height: 25px;
-  border-radius: 4px 10px 4px 4px;
-  background:
-    linear-gradient(116deg, transparent 0 14px, rgba(255,255,255,.3) 14px 19px, transparent 19px),
-    linear-gradient(180deg, #ffcc24, #d89600);
-  box-shadow: 0 8px 0 -5px rgba(0,0,0,.86), 0 0 10px rgba(255, 194, 38, .38);
-}
-
-.car-total-meter i::after {
-  left: 24px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #1b1d20 0 3px, #656d74 3px 5px, #151719 5px 100%);
-  box-shadow: 27px 0 0 #151719, 27px 0 0 2px #656d74, 27px 0 0 4px #151719;
 }
