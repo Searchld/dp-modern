@@ -78,15 +78,18 @@ export interface LogsPayload {
 export interface SelectOption {
   lable: string
   value: string
+  dept_sort?: number
 }
 
 export interface MaterialLevel {
   lname: string
   ton: number
   shitype: string
+  shitypename?: string
   status: string | number
   all_quantity: number
   now_quantity: number
+  dept?: string
 }
 
 export interface CameraItem {

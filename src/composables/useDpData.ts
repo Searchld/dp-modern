@@ -61,7 +61,7 @@ export function useDpData() {
   const lastUpdated = ref('')
   const warningType = ref('全部')
   const materialType = ref<'ai' | 'ld'>('ai')
-  const selectedDept = ref('总览')
+  const selectedDept = ref('0')
   const wsMessage = ref('')
   const wsTick = ref(0)
   let refreshAllPromise: Promise<void> | null = null
@@ -80,7 +80,7 @@ export function useDpData() {
   })
 
   const selectedDeptLabel = computed(() => {
-    if (selectedDept.value === '总览') return '总览'
+    if (selectedDept.value === '0') return '总览'
     return state.selectOptions.find(item => item.value === selectedDept.value)?.lable || selectedDept.value
   })
 
@@ -111,8 +111,13 @@ export function useDpData() {
   }
 
   async function refreshMaterials() {
-    const dept = selectedDept.value === '总览' ? '' : selectedDept.value
-    state.materials = await withFallback(() => dpApi.aiLogs(materialType.value, dept), mockMaterials)
+    const dept = selectedDept.value === '0' ? '' : selectedDept.value
+    const apiResult = await dpApi.aiLogs(materialType.value, dept).catch(() => null)
+    if (apiResult && Array.isArray(apiResult)) {
+      state.materials = apiResult.map(item => ({ ...item, dept: item.dept || dept }))
+    } else {
+      state.materials = [...mockMaterials]
+    }
   }
 
   async function refreshAlertState() {

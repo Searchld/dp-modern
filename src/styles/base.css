@@ -63,34 +63,34 @@ button {
   --cycle-track-active-top: rgba(255, 191, 98, .9);
   --cycle-track-active-bottom: rgba(214, 99, 27, .86);
   --cycle-track-active-glow: rgba(255, 128, 20, .35);
-  --ore-dark: #232724;
-  --ore-mid: #4f4739;
-  --ore-face-1: #50483a;
-  --ore-face-2: #282927;
-  --ore-face-3: #665a44;
-  --ore-face-4: #373832;
-  --ore-face-5: #1b1d1c;
-  --ore-face-6: #5d513e;
-  --ore-face-7: #272a27;
-  --ore-face-8: #242625;
-  --ore-face-9: #5d523e;
-  --ore-face-10: #333630;
-  --ore-face-11: #736246;
-  --ore-face-12: #1d201f;
-  --ore-face-13: #4b4437;
-  --ore-glow: rgba(226, 198, 143, .1);
-  --ore-glow-soft: rgba(214, 184, 129, .08);
-  --ore-edge: rgba(230, 209, 165, .12);
-  --ore-chip-light: rgba(170, 151, 121, .22);
-  --ore-chip-light-soft: rgba(178, 157, 124, .18);
-  --ore-chip-mid: rgba(116, 100, 77, .42);
-  --ore-chip-mid-soft: rgba(100, 89, 70, .44);
-  --ore-chip-dark: rgba(45, 43, 39, .64);
-  --ore-chip-deep: rgba(28, 29, 27, .82);
-  --ore-chip-deep-soft: rgba(24, 25, 23, .68);
-  --ore-surface-light: rgba(157, 133, 96, .42);
-  --ore-surface-mid: rgba(67, 58, 44, .82);
-  --ore-surface-dark: rgba(24, 25, 23, .94);
+  --ore-dark: #1a1815;
+  --ore-mid: #5a5040;
+  --ore-face-1: #4a4438;
+  --ore-face-2: #2a2822;
+  --ore-face-3: #585245;
+  --ore-face-4: #35332d;
+  --ore-face-5: #151412;
+  --ore-face-6: #504a40;
+  --ore-face-7: #2e2c26;
+  --ore-face-8: #23221e;
+  --ore-face-9: #4e483e;
+  --ore-face-10: #302e28;
+  --ore-face-11: #665e50;
+  --ore-face-12: #1e1d19;
+  --ore-face-13: #423d34;
+  --ore-glow: rgba(180, 160, 130, .15);
+  --ore-glow-soft: rgba(160, 140, 110, .1);
+  --ore-edge: rgba(200, 180, 150, .18);
+  --ore-chip-light: rgba(120, 105, 85, .2);
+  --ore-chip-light-soft: rgba(100, 90, 75, .15);
+  --ore-chip-mid: rgba(80, 70, 55, .25);
+  --ore-chip-mid-soft: rgba(70, 60, 50, .22);
+  --ore-chip-dark: rgba(40, 35, 30, .35);
+  --ore-chip-deep: rgba(25, 22, 20, .5);
+  --ore-chip-deep-soft: rgba(22, 20, 18, .38);
+  --ore-surface-light: rgba(150, 130, 105, .3);
+  --ore-surface-mid: rgba(75, 65, 50, .6);
+  --ore-surface-dark: rgba(28, 25, 22, .9);
   position: absolute;
   left: 0;
   top: 0;
@@ -122,34 +122,34 @@ button {
   --ok-dim: rgba(157, 239, 217, .8);
   --shadow: rgba(31, 181, 255, .28);
   --video-line: rgba(30, 198, 255, .55);
-  --ore-dark: #1f2830;
-  --ore-mid: #42505b;
-  --ore-face-1: #46535d;
-  --ore-face-2: #232d35;
-  --ore-face-3: #5d6d75;
-  --ore-face-4: #303b43;
-  --ore-face-5: #182028;
-  --ore-face-6: #53626b;
-  --ore-face-7: #222b33;
-  --ore-face-8: #202a32;
-  --ore-face-9: #52626d;
-  --ore-face-10: #2f3b45;
-  --ore-face-11: #6a7b82;
-  --ore-face-12: #1b242c;
-  --ore-face-13: #43535e;
-  --ore-glow: rgba(129, 219, 255, .12);
-  --ore-glow-soft: rgba(104, 194, 239, .09);
-  --ore-edge: rgba(150, 228, 255, .13);
-  --ore-chip-light: rgba(126, 177, 194, .24);
-  --ore-chip-light-soft: rgba(98, 151, 174, .2);
-  --ore-chip-mid: rgba(65, 96, 112, .48);
-  --ore-chip-mid-soft: rgba(55, 87, 105, .48);
-  --ore-chip-dark: rgba(35, 48, 57, .72);
-  --ore-chip-deep: rgba(19, 28, 35, .86);
-  --ore-chip-deep-soft: rgba(24, 36, 44, .72);
-  --ore-surface-light: rgba(116, 177, 202, .44);
-  --ore-surface-mid: rgba(47, 70, 84, .84);
-  --ore-surface-dark: rgba(17, 25, 32, .95);
+  --ore-dark: #161f26;
+  --ore-mid: #3a4a55;
+  --ore-face-1: #3a4a55;
+  --ore-face-2: #202a32;
+  --ore-face-3: #455865;
+  --ore-face-4: #2b3842;
+  --ore-face-5: #10161c;
+  --ore-face-6: #40505c;
+  --ore-face-7: #253039;
+  --ore-face-8: #1c252c;
+  --ore-face-9: #3e4e5a;
+  --ore-face-10: #28343d;
+  --ore-face-11: #506575;
+  --ore-face-12: #182026;
+  --ore-face-13: #35434e;
+  --ore-glow: rgba(120, 180, 210, .18);
+  --ore-glow-soft: rgba(100, 160, 190, .12);
+  --ore-edge: rgba(140, 200, 230, .2);
+  --ore-chip-light: rgba(90, 130, 155, .22);
+  --ore-chip-light-soft: rgba(80, 120, 145, .18);
+  --ore-chip-mid: rgba(65, 95, 115, .28);
+  --ore-chip-mid-soft: rgba(55, 85, 105, .25);
+  --ore-chip-dark: rgba(35, 50, 60, .38);
+  --ore-chip-deep: rgba(20, 30, 38, .52);
+  --ore-chip-deep-soft: rgba(18, 28, 35, .4);
+  --ore-surface-light: rgba(110, 150, 175, .32);
+  --ore-surface-mid: rgba(55, 80, 100, .62);
+  --ore-surface-dark: rgba(22, 28, 34, .92);
   background:
     radial-gradient(circle at 80% 10%, rgba(38, 120, 255, .16), transparent 30%),
     radial-gradient(circle at 18% 78%, rgba(32, 215, 255, .12), transparent 36%),
@@ -949,6 +949,13 @@ button {
     0 0 10px var(--shadow);
   font-size: 18px;
   font-weight: 800;
+  overflow: hidden;
+}
+
+.device-emblem svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 
 .device-emblem::before,
@@ -981,41 +988,41 @@ button {
 }
 
 .device-emblem.camera i {
-  width: 23px;
-  height: 16px;
+  width: 18px;
+  height: 12px;
   border: 2px solid currentColor;
-  border-radius: 4px;
+  border-radius: 3px;
   background:
-    radial-gradient(circle at 52% 52%, currentColor 0 2px, transparent 3px),
+    radial-gradient(circle at 52% 52%, currentColor 0 1.5px, transparent 2px),
     linear-gradient(180deg, rgba(255,255,255,.12), transparent);
-  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 26%, transparent);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--accent) 26%, transparent);
 }
 
 .device-emblem.camera i::before {
-  right: -9px;
-  top: 4px;
-  width: 8px;
-  height: 8px;
+  right: -4px;
+  top: 3px;
+  width: 6px;
+  height: 6px;
   clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 78%);
   background: currentColor;
 }
 
 .device-emblem.camera i::after {
-  left: 3px;
-  top: -6px;
-  width: 11px;
-  height: 5px;
+  left: 2px;
+  top: -4px;
+  width: 9px;
+  height: 4px;
   border: 2px solid currentColor;
   border-bottom: 0;
-  border-radius: 4px 4px 0 0;
+  border-radius: 3px 3px 0 0;
   background: currentColor;
 }
 
 .device-emblem.rfid i {
-  width: 14px;
-  height: 22px;
+  width: 11px;
+  height: 16px;
   border: 2px solid currentColor;
-  border-radius: 5px;
+  border-radius: 4px;
   background:
     linear-gradient(90deg, transparent 34%, currentColor 34% 42%, transparent 42% 58%, currentColor 58% 66%, transparent 66%),
     rgba(255,255,255,.08);
@@ -1023,9 +1030,9 @@ button {
 
 .device-emblem.rfid i::before,
 .device-emblem.rfid i::after {
-  top: 0;
-  width: 13px;
-  height: 22px;
+  top: 2px;
+  width: 10px;
+  height: 16px;
   border: 2px solid currentColor;
   border-top-color: transparent;
   border-bottom-color: transparent;
@@ -1033,48 +1040,48 @@ button {
 }
 
 .device-emblem.rfid i::before {
-  right: 13px;
+  right: 8px;
   border-left: 0;
-  border-radius: 0 18px 18px 0;
+  border-radius: 0 12px 12px 0;
 }
 
 .device-emblem.rfid i::after {
-  left: 13px;
+  left: 8px;
   border-right: 0;
-  border-radius: 18px 0 0 18px;
+  border-radius: 12px 0 0 12px;
 }
 
 .device-emblem.speaker i {
-  left: 9px;
-  width: 13px;
-  height: 16px;
+  left: 12px;
+  width: 10px;
+  height: 12px;
   clip-path: polygon(0 28%, 38% 28%, 100% 0, 100% 100%, 38% 72%, 0 72%);
   background: currentColor;
-  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--accent) 34%, transparent));
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--accent) 34%, transparent));
 }
 
 .device-emblem.speaker i::before,
 .device-emblem.speaker i::after {
-  left: 15px;
-  top: -4px;
-  width: 10px;
-  height: 20px;
+  left: 18px;
+  top: -2px;
+  width: 8px;
+  height: 14px;
   border: 2px solid currentColor;
   border-left: 0;
-  border-radius: 0 14px 14px 0;
+  border-radius: 0 10px 10px 0;
   opacity: .82;
 }
 
 .device-emblem.speaker i::after {
-  left: 22px;
-  top: -8px;
-  height: 28px;
+  left: 23px;
+  top: -4px;
+  height: 18px;
   opacity: .38;
 }
 
 .device-emblem.disk i {
-  width: 23px;
-  height: 21px;
+  width: 18px;
+  height: 16px;
   border: 2px solid currentColor;
   border-radius: 3px;
   background:
@@ -1085,17 +1092,17 @@ button {
 .device-emblem.disk i::before {
   left: 3px;
   right: 3px;
-  top: 7px;
+  top: 5px;
   height: 2px;
   background: currentColor;
-  box-shadow: 0 5px 0 currentColor;
+  box-shadow: 0 4px 0 currentColor;
 }
 
 .device-emblem.disk i::after {
-  right: 3px;
-  bottom: 3px;
-  width: 4px;
-  height: 4px;
+  right: 2px;
+  bottom: 2px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
   background: currentColor;
 }
@@ -1131,278 +1138,150 @@ button {
 .car-dashboard {
   position: relative;
   min-height: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 122px minmax(0, 1fr);
-  grid-template-rows: 70px 48px;
+  display: flex;
   align-items: center;
-  gap: 8px 14px;
-  padding: 14px 14px 12px;
+  justify-content: center;
+  padding: 16px 12px;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(3, 20, 35, .08), rgba(0, 0, 0, .12)),
-    radial-gradient(circle at 50% 52%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 42%);
+  background: rgba(10, 14, 20, 0.85);
+  border: 1px solid color-mix(in srgb, var(--line) 35%, transparent);
 }
 
-.car-dashboard::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  top: 12px;
-  bottom: 10px;
-  border: 1px solid color-mix(in srgb, var(--danger) 72%, transparent);
-  box-shadow: 0 0 18px rgba(255, 42, 40, .16) inset;
-  opacity: .86;
-  pointer-events: none;
-}
-
-.car-dashboard::after {
-  content: "";
-  position: absolute;
-  left: 26px;
-  right: 26px;
-  top: 84px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
-  opacity: .66;
-  pointer-events: none;
-}
-
-.car-dashboard button {
-  position: relative;
-  min-width: 0;
-  border: 0 !important;
-  color: var(--text);
-  background: transparent;
-  overflow: visible;
-}
-
-.car-dashboard button::before {
-  content: none;
-}
-
-.car-metric {
-  height: 52px;
-  display: grid;
-  grid-template-rows: 1fr auto auto;
+.car-stats-row {
+  display: flex;
   align-items: center;
-  justify-items: center;
-  padding: 5px 6px 6px;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.car-stat-card {
+  flex: 1;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
   text-align: center;
-  border: 1px solid rgba(255,255,255,.16) !important;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.16)),
-    rgba(255,255,255,.035) !important;
-  box-shadow:
-    0 0 12px rgba(0,0,0,.24) inset,
-    0 0 10px color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(20, 25, 32, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.car-metric.running {
-  grid-column: 1;
-  grid-row: 1;
+.car-stat-card:hover {
+  background: rgba(30, 38, 48, 0.8);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
-.car-metric.idle {
-  grid-column: 3;
-  grid-row: 1;
-  color: var(--muted);
-}
-
-.car-metric strong {
-  color: var(--accent);
-  font-size: 24px;
+.car-stat-card strong {
+  font-size: 36px;
   line-height: 1;
   font-weight: 900;
   font-variant-numeric: tabular-nums;
-  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 42%, transparent);
 }
 
-.car-metric.idle strong {
-  color: color-mix(in srgb, var(--muted) 82%, white 18%);
-  text-shadow: none;
-}
-
-.car-metric span {
-  color: var(--text);
+.car-stat-card span {
   font-size: 12px;
-  line-height: 1.1;
-  opacity: .9;
-}
-
-.car-metric em {
-  height: auto;
-  max-width: none;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
   color: var(--muted);
-  font-size: 10px;
-  line-height: 1;
-  font-style: normal;
 }
 
-.car-total-meter {
-  z-index: 1;
-  grid-column: 2;
-  grid-row: 1 / 3;
-  width: 104px;
-  height: 104px;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 5px;
-  justify-self: center;
-  border-radius: 50%;
-  border: 3px solid color-mix(in srgb, var(--accent) 88%, white 12%) !important;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(7, 18, 31, .96) 0 58%, transparent 59%),
-    conic-gradient(from -24deg, color-mix(in srgb, var(--accent) 78%, transparent), transparent 30%, color-mix(in srgb, var(--accent) 80%, transparent) 62%, transparent 82%, color-mix(in srgb, var(--accent) 78%, transparent));
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.12),
-    0 0 20px color-mix(in srgb, var(--accent) 24%, transparent),
-    0 0 28px rgba(0,0,0,.48) inset;
-}
-
-.car-total-meter i {
-  position: absolute;
-  inset: 8px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
-}
-
-.car-total-meter i::before,
-.car-total-meter i::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 10px;
-  height: 46px;
-  border: 2px solid color-mix(in srgb, var(--accent) 76%, transparent);
-  opacity: .72;
-  transform: translateY(-50%);
-}
-
-.car-total-meter i::before {
-  left: -20px;
-  border-left: 0;
-  border-radius: 0 30px 30px 0;
-}
-
-.car-total-meter i::after {
-  right: -20px;
-  border-right: 0;
-  border-radius: 30px 0 0 30px;
-}
-
-.car-total-meter b {
-  position: relative;
-  color: #f7fbff;
-  font-size: 40px;
-  line-height: 1;
-  font-weight: 900;
-  text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 36%, transparent), 0 2px 8px rgba(0,0,0,.7);
-}
-
-.car-total-meter span {
-  position: relative;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.car-mini-truck {
-  height: 42px;
-  display: grid;
-  grid-template-rows: 14px 24px;
-  justify-items: center;
-  align-items: end;
-  padding: 0;
-}
-
-.car-mini-truck b {
+.car-stat-card.running-card strong {
   color: var(--accent);
-  font-size: 13px;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
-.car-mini-truck i {
+.car-stat-card.idle-card strong {
+  color: var(--muted);
+}
+
+.car-total-ring {
   position: relative;
-  width: 35px;
-  height: 18px;
-  border-radius: 2px 6px 3px 3px;
-  color: #ffba19;
-  background:
-    linear-gradient(115deg, transparent 0 10px, rgba(255,255,255,.28) 10px 14px, transparent 14px),
-    linear-gradient(180deg, currentColor, color-mix(in srgb, currentColor 72%, #7d3b00));
-  filter: drop-shadow(0 0 5px color-mix(in srgb, currentColor 28%, transparent));
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.car-mini-truck i::before,
-.car-mini-truck i::after {
+.car-total-ring:hover {
+  transform: scale(1.05);
+}
+
+.car-total-ring::before {
   content: "";
   position: absolute;
-  bottom: -5px;
-  width: 8px;
-  height: 8px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  background: radial-gradient(circle, #14171a 0 3px, #636b73 3px 4px, #151719 4px 100%);
+  border: 3px solid var(--accent);
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--accent) 25%, transparent),
+    0 0 20px color-mix(in srgb, var(--accent) 20%, transparent),
+    inset 0 0 15px rgba(0,0,0,.4);
 }
 
-.car-mini-truck i::before {
-  left: 4px;
+.car-total-ring::after {
+  content: "";
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: rgba(10, 14, 20, 0.95);
 }
 
-.car-mini-truck i::after {
-  right: 4px;
+.ring-decor {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-.car-mini-truck.truck-one,
-.car-mini-truck.truck-two {
-  grid-row: 2;
+.ring-decor.ring-left {
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
-.car-mini-truck.truck-one {
-  grid-column: 1;
-  justify-self: start;
-  margin-left: 16px;
+.ring-decor.ring-right {
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-.car-mini-truck.truck-two {
-  grid-column: 1;
-  justify-self: end;
-  margin-right: 10px;
+.ring-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 
-.car-mini-truck.idle-one,
-.car-mini-truck.idle-two {
-  grid-row: 2;
+.ring-content strong {
+  font-size: 36px;
+  font-weight: 900;
+  color: #f7fbff;
+  line-height: 1;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
-.car-mini-truck.idle-one {
-  grid-column: 3;
-  justify-self: start;
-  margin-left: 10px;
-}
-
-.car-mini-truck.idle-two {
-  grid-column: 3;
-  justify-self: end;
-  margin-right: 16px;
-}
-
-.car-mini-truck.idle-one b,
-.car-mini-truck.idle-two b {
-  color: color-mix(in srgb, var(--muted) 78%, white 22%);
-}
-
-.car-mini-truck.idle-one i,
-.car-mini-truck.idle-two i {
-  color: #9ea4aa;
-  background:
-    linear-gradient(95deg, transparent 0 12px, rgba(255,255,255,.24) 12px 16px, transparent 16px),
-    linear-gradient(180deg, #d7dadf, #777f87 76%, #4d5358);
+.ring-content span {
+  font-size: 10px;
+  color: var(--muted);
 }
 
 .video-panel {
@@ -2138,25 +2017,89 @@ button {
   padding: 7px 14px 4px;
 }
 
-.material-toolbar label {
+.material-toolbar .dept-select {
   position: relative;
-  width: 150px;
-  height: 31px;
-  display: grid;
-  place-items: center;
-  color: var(--text);
-  border: 1px solid var(--line-soft);
-  background: rgba(255,255,255,.035);
+  width: 110px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 8px;
+  border-radius: 13px;
+  border: 1px solid var(--cycle-border);
+  color: var(--cycle-text);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.055), transparent),
+    var(--cycle-bg);
+  box-shadow:
+    0 0 10px var(--cycle-shadow) inset,
+    0 0 0 1px rgba(0,0,0,.16);
+  cursor: pointer;
+  transition: opacity .2s ease, border-color .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
 }
 
-.material-toolbar label span {
-  pointer-events: none;
+.material-toolbar .dept-select:hover {
+  opacity: .82;
 }
 
-.material-toolbar select {
+.material-toolbar .dept-select .select-label {
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.material-toolbar .dept-select .select-arrow {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform .2s ease;
+}
+
+.material-toolbar .dept-select:hover .select-arrow,
+.material-toolbar .dept-select:focus-within .select-arrow {
+  transform: rotate(180deg);
+}
+
+.material-toolbar .dept-select select {
   position: absolute;
   inset: 0;
   opacity: 0;
+  cursor: pointer;
+}
+
+.material-toolbar .dept-select select option {
+  background: #0a0c12;
+  color: #dff9ff;
+  padding: 6px 10px;
+  border: 0;
+}
+
+.material-toolbar .dept-select select option:hover {
+  background: rgba(255, 156, 37, .2);
+}
+
+.dashboard-board[data-theme="hologram"] .material-toolbar .dept-select {
+  color: rgba(190, 235, 255, .9);
+  border-color: rgba(98, 201, 255, .26);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.055), transparent),
+    rgba(8, 20, 36, .22);
+  box-shadow:
+    0 0 10px rgba(35, 173, 255, .1) inset,
+    0 0 0 1px rgba(0,0,0,.16);
+}
+
+.dashboard-board[data-theme="hologram"] .material-toolbar .dept-select select option {
+  background: #061526;
+  color: rgba(225, 248, 255, .96);
+}
+
+.dashboard-board[data-theme="hologram"] .material-toolbar .dept-select select option:hover {
+  background: rgba(32, 215, 255, .2);
 }
 
 .silo-row {
@@ -2181,6 +2124,87 @@ button {
 
 .silo-row::-webkit-scrollbar-thumb {
   background: var(--accent);
+}
+
+.silo-scroll-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.silo-scroll-wrapper {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) rgba(255,255,255,.05);
+}
+
+.silo-scroll-wrapper::-webkit-scrollbar {
+  height: 7px;
+}
+
+.silo-scroll-wrapper::-webkit-scrollbar-track {
+  background: rgba(255,255,255,.04);
+}
+
+.silo-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+.silo-scroll-container .silo-row {
+  min-height: 0;
+  display: flex;
+  gap: 10px;
+  padding: 10px 0 16px;
+  overflow-x: visible;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--line) 50%, transparent);
+  background: color-mix(in srgb, var(--bg-panel) 90%, black);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.scroll-btn:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 20%, var(--bg-panel));
+}
+
+.scroll-btn i {
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.scroll-left {
+  left: 8px;
+}
+
+.scroll-left i {
+  border-width: 6px 8px 6px 0;
+  border-color: transparent var(--accent) transparent transparent;
+}
+
+.scroll-right {
+  right: 8px;
+}
+
+.scroll-right i {
+  border-width: 6px 0 6px 8px;
+  border-color: transparent transparent transparent var(--accent);
 }
 
 .silo-card {
@@ -2465,159 +2489,42 @@ button {
 }
 
 .silo-tube.filled::after {
-  background:
-    radial-gradient(ellipse at 50% 42%, rgba(255,255,255,.18), transparent 44%),
-    radial-gradient(ellipse at 32% 62%, var(--ore-chip-mid) 0 18%, transparent 32%),
-    radial-gradient(ellipse at 68% 58%, var(--ore-chip-dark) 0 19%, transparent 34%),
-    linear-gradient(180deg, var(--ore-mid), var(--ore-dark));
+  display: none !important;
 }
 
 .silo-tube i {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  min-height: 2px;
-  overflow: hidden;
-  clip-path: polygon(0 9%, 5% 6%, 11% 12%, 18% 4%, 26% 8%, 33% 2%, 43% 7%, 51% 3%, 61% 10%, 70% 4%, 79% 8%, 89% 3%, 100% 7%, 100% 100%, 0 100%);
-  background:
-    radial-gradient(ellipse at 14% 12%, var(--ore-chip-light) 0 2.2%, transparent 4.4%),
-    radial-gradient(ellipse at 27% 36%, var(--ore-chip-light-soft) 0 2.6%, transparent 4.8%),
-    radial-gradient(ellipse at 49% 18%, var(--ore-chip-dark) 0 2.8%, transparent 5.2%),
-    radial-gradient(ellipse at 63% 46%, var(--ore-chip-light-soft) 0 2.1%, transparent 4.1%),
-    radial-gradient(ellipse at 78% 31%, var(--ore-chip-deep) 0 3.1%, transparent 5.7%),
-    radial-gradient(ellipse at 86% 67%, var(--ore-chip-light-soft) 0 2.4%, transparent 4.6%),
-    radial-gradient(ellipse at 34% 74%, var(--ore-chip-deep-soft) 0 3.2%, transparent 5.8%),
-    radial-gradient(ellipse at 57% 86%, var(--ore-chip-light-soft) 0 2.2%, transparent 4.4%),
-    linear-gradient(11deg, transparent 0 6%, var(--ore-chip-deep) 6% 11%, transparent 11% 100%),
-    linear-gradient(149deg, transparent 0 13%, var(--ore-chip-mid) 13% 18%, transparent 18% 100%),
-    linear-gradient(101deg, transparent 0 31%, var(--ore-chip-deep-soft) 31% 38%, transparent 38% 100%),
-    linear-gradient(17deg, transparent 0 8%, var(--ore-chip-deep) 8% 15%, transparent 15% 100%),
-    linear-gradient(161deg, transparent 0 16%, var(--ore-chip-mid-soft) 16% 23%, transparent 23% 100%),
-    linear-gradient(94deg, transparent 0 35%, var(--ore-chip-deep-soft) 35% 45%, transparent 45% 100%),
-    radial-gradient(ellipse at 9% 64%, var(--ore-chip-deep-soft) 0 6%, transparent 11%),
-    radial-gradient(ellipse at 76% 17%, var(--ore-chip-dark) 0 7%, transparent 13%),
-    radial-gradient(ellipse at 58% 88%, var(--ore-chip-mid) 0 8%, transparent 14%),
-    radial-gradient(ellipse at 18% 22%, var(--ore-chip-light) 0 4%, transparent 8%),
-    radial-gradient(ellipse at 64% 30%, var(--ore-chip-light-soft) 0 5%, transparent 10%),
-    radial-gradient(ellipse at 42% 72%, var(--ore-chip-light) 0 4%, transparent 9%),
-    radial-gradient(ellipse at 82% 78%, var(--ore-chip-mid-soft) 0 3%, transparent 8%),
-    linear-gradient(44deg, transparent 0 41%, var(--ore-edge) 41% 43%, transparent 43% 100%),
-    linear-gradient(128deg, transparent 0 56%, rgba(0,0,0,.34) 56% 59%, transparent 59% 100%),
-    linear-gradient(138deg, transparent 0 12%, var(--ore-chip-mid) 12% 18%, transparent 18% 100%),
-    linear-gradient(32deg, transparent 0 20%, var(--ore-chip-deep) 20% 34%, transparent 34% 100%),
-    linear-gradient(112deg, transparent 0 28%, var(--ore-chip-mid-soft) 28% 41%, transparent 41% 100%),
-    linear-gradient(72deg, transparent 0 48%, var(--ore-chip-light-soft) 48% 57%, transparent 57% 100%),
-    conic-gradient(from 24deg at 22% 18%, var(--ore-face-1) 0 21deg, var(--ore-face-2) 21deg 68deg, var(--ore-face-3) 68deg 116deg, var(--ore-face-4) 116deg 176deg, var(--ore-face-5) 176deg 238deg, var(--ore-face-6) 238deg 306deg, var(--ore-face-7) 306deg 360deg),
-    conic-gradient(from 70deg at 70% 62%, var(--ore-face-8) 0 42deg, var(--ore-face-9) 42deg 108deg, var(--ore-face-10) 108deg 180deg, var(--ore-face-11) 180deg 224deg, var(--ore-face-12) 224deg 292deg, var(--ore-face-13) 292deg 360deg),
-    linear-gradient(90deg, rgba(0,0,0,.5), transparent 18%, var(--ore-glow) 50%, transparent 76%, rgba(0,0,0,.42)),
-    linear-gradient(180deg, var(--ore-mid), var(--ore-dark));
-  background-size:
-    38px 31px,
-    42px 34px,
-    36px 29px,
-    44px 35px,
-    40px 32px,
-    46px 38px,
-    39px 33px,
-    43px 36px,
-    47px 39px,
-    53px 42px,
-    49px 41px,
-    91px 73px,
-    67px 59px,
-    83px 69px,
-    77px 64px,
-    69px 58px,
-    94px 72px,
-    54px 48px,
-    72px 62px,
-    66px 58px,
-    52px 46px,
-    78px 60px,
-    88px 66px,
-    64px 52px,
-    72px 56px,
-    60px 48px,
-    78px 58px,
-    54px 46px,
-    68px 60px,
-    100% 100%,
-    100% 100%;
-  background-position:
-    2px 3px,
-    13px 11px,
-    21px -2px,
-    6px 19px,
-    24px 10px,
-    -4px 22px,
-    16px 28px,
-    30px 18px,
-    -8px 6px,
-    20px -3px,
-    8px 24px,
-    -13px 9px,
-    21px -7px,
-    6px 31px,
-    24px 17px,
-    -8px 3px,
-    18px 28px,
-    5px 6px,
-    18px 14px,
-    -6px 22px,
-    28px 30px,
-    0 0,
-    22px 12px,
-    0 0,
-    16px 10px,
-    28px 3px,
-    -10px 18px,
-    0 0,
-    18px 20px,
-    0 0,
-    0 0;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  min-height: 2px !important;
+  overflow: hidden !important;
+  clip-path: polygon(0 9%, 5% 6%, 11% 12%, 18% 4%, 26% 8%, 33% 2%, 43% 7%, 51% 3%, 61% 10%, 70% 4%, 79% 8%, 89% 3%, 100% 7%, 100% 100%, 0 100%) !important;
+  background-image: url('ore-3.png'), url('ore-1.png'), url('ore-2.png'), url('ore-4.png'), url('ore-5.png') !important;
+  background-size: cover, 20% 18%, 20% 18%, 20% 18%, 20% 18% !important;
+  background-position: center center, 15% 25%, 85% 25%, 15% 70%, 85% 70% !important;
+  background-repeat: no-repeat !important;
   box-shadow:
     0 0 18px rgba(0,0,0,.42) inset,
-    0 0 20px var(--shadow);
+    0 0 20px var(--shadow) !important;
+  z-index: 1 !important;
 }
 
 .silo-tube i::before {
-  left: -8px;
-  right: -8px;
-  top: -17px;
-  height: 34px;
-  z-index: 2;
-  border-radius: 44% 56% 48% 52% / 58% 52% 42% 44%;
-  clip-path: polygon(0 62%, 7% 46%, 14% 55%, 22% 34%, 31% 49%, 39% 29%, 48% 45%, 57% 31%, 66% 56%, 75% 38%, 84% 51%, 93% 35%, 100% 58%, 100% 100%, 0 100%);
-  background:
-    radial-gradient(ellipse at 16% 68%, var(--ore-surface-light) 0 7%, transparent 13%),
-    radial-gradient(ellipse at 28% 52%, var(--ore-chip-dark) 0 9%, transparent 16%),
-    radial-gradient(ellipse at 43% 62%, var(--ore-chip-mid) 0 8%, transparent 15%),
-    radial-gradient(ellipse at 58% 48%, var(--ore-chip-deep) 0 8%, transparent 16%),
-    radial-gradient(ellipse at 75% 58%, var(--ore-surface-light) 0 7%, transparent 14%),
-    radial-gradient(ellipse at 90% 45%, var(--ore-chip-dark) 0 8%, transparent 15%),
-    linear-gradient(180deg, var(--ore-edge), var(--ore-surface-mid) 43%, var(--ore-surface-dark));
-  animation: oreSurfacePulse 7.2s ease-out infinite;
+  display: none !important;
 }
 
 .silo-tube i::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    repeating-linear-gradient(166deg, var(--ore-glow-soft) 0 1px, transparent 1px 9px),
-    repeating-linear-gradient(41deg, transparent 0 7px, rgba(0,0,0,.16) 7px 8px, transparent 8px 16px),
-    repeating-linear-gradient(150deg, var(--ore-glow-soft) 0 1px, transparent 1px 15px),
-    repeating-linear-gradient(28deg, transparent 0 13px, rgba(0,0,0,.18) 13px 14px, transparent 14px 29px),
-    linear-gradient(73deg, transparent 0 22%, var(--ore-glow) 22% 23%, transparent 23% 100%),
-    linear-gradient(119deg, transparent 0 37%, rgba(0,0,0,.22) 37% 39%, transparent 39% 100%),
-    radial-gradient(ellipse at 31% 44%, rgba(0,0,0,.22), transparent 14%),
-    radial-gradient(ellipse at 72% 60%, var(--ore-glow-soft), transparent 10%),
-    radial-gradient(ellipse at 50% 0, var(--ore-edge), transparent 16%),
-    linear-gradient(90deg, rgba(0,0,0,.52), transparent 18%, var(--ore-glow) 47%, transparent 72%, rgba(0,0,0,.46)),
-    linear-gradient(180deg, var(--ore-glow-soft), transparent 18%, rgba(0,0,0,.26));
-  pointer-events: none;
+  display: none !important;
+}
+
+.silo-card .silo-tube i,
+.silo-card .silo-tube.filled i,
+.silo-card .silo-tube.dumping i {
+  background-image: url('ore-3.png'), url('ore-1.png'), url('ore-2.png'), url('ore-4.png'), url('ore-5.png') !important;
+  background-size: cover, 20% 18%, 20% 18%, 20% 18%, 20% 18% !important;
+  background-position: center center, 15% 25%, 85% 25%, 15% 70%, 85% 70% !important;
+  background-repeat: no-repeat !important;
 }
 
 .silo-tube b {
@@ -2643,7 +2550,7 @@ button {
 }
 
 .silo-card small {
-  color: var(--muted);
+  color: var(--accent);
   font-size: 13px;
 }
 
@@ -2654,16 +2561,10 @@ button {
   min-height: 3px;
   border-radius: 14px 14px 10px 10px;
   clip-path: polygon(0 8%, 8% 5%, 15% 11%, 25% 4%, 36% 8%, 47% 3%, 58% 9%, 70% 5%, 82% 10%, 92% 4%, 100% 8%, 100% 100%, 0 100%);
-  background:
-    radial-gradient(ellipse at 18% 18%, var(--ore-chip-light) 0 5%, transparent 10%),
-    radial-gradient(ellipse at 42% 12%, var(--ore-chip-mid) 0 6%, transparent 12%),
-    radial-gradient(ellipse at 72% 20%, var(--ore-chip-dark) 0 7%, transparent 13%),
-    radial-gradient(ellipse at 28% 58%, var(--ore-chip-deep-soft) 0 12%, transparent 22%),
-    radial-gradient(ellipse at 62% 64%, var(--ore-chip-mid-soft) 0 11%, transparent 20%),
-    linear-gradient(90deg, rgba(0,0,0,.42), transparent 22%, var(--ore-glow) 50%, transparent 76%, rgba(0,0,0,.38)),
-    linear-gradient(180deg, var(--ore-surface-mid), var(--ore-surface-dark));
-  background-size: auto;
-  background-position: 0 0;
+  background-image: url('ore-3.png'), url('ore-1.png'), url('ore-2.png'), url('ore-4.png'), url('ore-5.png') !important;
+  background-size: cover, 20% 18%, 20% 18%, 20% 18%, 20% 18% !important;
+  background-position: center center, 15% 25%, 85% 25%, 15% 70%, 85% 70% !important;
+  background-repeat: no-repeat !important;
   box-shadow:
     0 0 14px rgba(0,0,0,.38) inset,
     0 0 14px color-mix(in srgb, var(--shadow) 30%, transparent);
@@ -2779,6 +2680,64 @@ button {
     filter: brightness(1.02);
   }
 }
+
+/* 雷达统计模式样式 */
+.silo-card.radar-mode .ore-fall,
+.silo-card.radar-mode .ore-particles,
+.silo-card.radar-mode .ore-impact {
+  display: none;
+}
+
+.silo-card.radar-mode .silo-tube {
+  border: 2px solid var(--accent);
+  box-shadow: 
+    0 0 30px color-mix(in srgb, var(--accent) 40%, transparent),
+    0 0 60px color-mix(in srgb, var(--accent) 20%, transparent) inset;
+}
+
+.silo-card.radar-mode .silo-tube::before {
+  border-color: color-mix(in srgb, var(--accent) 70%, transparent);
+  background: linear-gradient(90deg, rgba(0,0,0,.2), color-mix(in srgb, var(--accent) 20%, transparent), rgba(0,0,0,.2));
+}
+
+.silo-card.radar-mode .silo-tube i {
+  box-shadow: 0 0 20px var(--accent), 0 0 40px color-mix(in srgb, var(--accent) 30%, transparent) inset !important;
+  border-radius: 20px 20px 18px 18px !important;
+  bottom: 6px !important;
+  left: 5px !important;
+  right: 5px !important;
+  background-image: url('ore-3.png'), url('ore-1.png'), url('ore-2.png'), url('ore-4.png'), url('ore-5.png') !important;
+  background-size: cover, 20% 18%, 20% 18%, 20% 18%, 20% 18% !important;
+  background-position: center center, 15% 25%, 85% 25%, 15% 70%, 85% 70% !important;
+  background-repeat: no-repeat !important;
+}
+
+.silo-card.radar-mode .silo-tube i::after {
+  content: '';
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: 
+    radial-gradient(ellipse at 50% 30%, color-mix(in srgb, var(--accent) 25%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 20%, transparent) 0%, transparent 50%);
+  pointer-events: none !important;
+  border-radius: inherit !important;
+  z-index: 2;
+}
+
+.silo-card.radar-mode .silo-tube i::before {
+  display: none;
+}
+
+.silo-card.radar-mode .silo-tube.filled::after {
+  background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 60%, var(--accent-2)), var(--accent-2));
+  box-shadow: 0 0 20px var(--accent);
+}
+
+
 
 .chart-panel {
   display: grid;

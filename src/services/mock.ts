@@ -64,21 +64,22 @@ export const mockLogs: LogsPayload = {
 }
 
 export const mockSelectOptions: SelectOption[] = [
-  { lable: '总览', value: '总览' },
-  { lable: '高峰山4号', value: '4' },
-  { lable: '高峰山5号', value: '5' },
-  { lable: '53号溜井', value: '53' },
-  { lable: '54号溜井', value: '54' },
-  { lable: '61号溜井', value: '61' }
+  { lable: '一坑', value: '5288924761098241', dept_sort: 1 },
+  { lable: '三坑', value: '5288924472756225', dept_sort: 3 }
 ]
 
 export const mockMaterials: MaterialLevel[] = [
-  { lname: '高峰山4号', ton: 150.95, shitype: '矿石', status: '0', all_quantity: 22, now_quantity: 8.66 },
-  { lname: '高峰山5号', ton: 143.65, shitype: '矿石', status: '0', all_quantity: 22, now_quantity: 8.81 },
-  { lname: '53号溜井', ton: 663.11, shitype: '矿石', status: '0', all_quantity: 23, now_quantity: 23 },
-  { lname: '54号溜井', ton: 503.64, shitype: '废石', status: '1', all_quantity: 23, now_quantity: 23 },
-  { lname: '61号溜井', ton: 0, shitype: '矿石', status: '0', all_quantity: 180, now_quantity: 0 },
-  { lname: '备用料仓', ton: 120.3, shitype: '矿石', status: '0', all_quantity: 100, now_quantity: 12 }
+  { lname: '34号溜井', ton: 0, shitype: '1660矿', shitypename: '高、低氧矿', status: 0, all_quantity: 180, now_quantity: 0, dept: '5288924761098241' },
+  { lname: '61号溜井', ton: 0, shitype: '1660矿', shitypename: '高、低氧矿', status: 0, all_quantity: 180, now_quantity: 0, dept: '5288924761098241' },
+  { lname: '高峰山4号', ton: 150.95, shitype: '矿石', shitypename: '矿石', status: 0, all_quantity: 22, now_quantity: 8.66, dept: '5288924472756225' },
+  { lname: '高峰山5号', ton: 143.65, shitype: '矿石', shitypename: '矿石', status: 0, all_quantity: 22, now_quantity: 8.81, dept: '5288924472756225' },
+  { lname: '53号溜井', ton: 663.11, shitype: '矿石', shitypename: '矿石', status: 0, all_quantity: 23, now_quantity: 23, dept: '5288924472756225' },
+  { lname: '54号溜井', ton: 503.64, shitype: '废石', shitypename: '废石', status: 1, all_quantity: 23, now_quantity: 23, dept: '5288924472756225' },
+  { lname: '55号溜井', ton: 320.78, shitype: '矿石', shitypename: '矿石', status: 0, all_quantity: 25, now_quantity: 15.3, dept: '5288924472756225' },
+  { lname: '56号溜井', ton: 180.45, shitype: '废石', shitypename: '废石', status: 0, all_quantity: 20, now_quantity: 9.2, dept: '5288924472756225' },
+  { lname: '57号溜井', ton: 450.23, shitype: '矿石', shitypename: '高品位矿', status: 0, all_quantity: 30, now_quantity: 20.8, dept: '5288924472756225' },
+  { lname: '58号溜井', ton: 78.91, shitype: '矿石', shitypename: '低品位矿', status: 0, all_quantity: 18, now_quantity: 4.5, dept: '5288924472756225' },
+  { lname: '备用料仓', ton: 120.3, shitype: '矿石', shitypename: '矿石', status: 0, all_quantity: 100, now_quantity: 12, dept: '' }
 ]
 
 export const mockLive: CameraCategory[] = [

@@ -64,7 +64,7 @@
               </div>
               <div ref="alarmTableBodyRef" class="alarm-table-body" @mouseenter="alarmScrollPaused = true" @mouseleave="alarmScrollPaused = false">
                 <button
-                  v-for="item in state.warnings.slice(0, 50)"
+                  v-for="item in visibleWarnings"
                   :key="`${item.type}-${item.name}-${item.warning_time}`"
                   class="alarm-row"
                   @click="openWarningDetail(item)"
@@ -81,10 +81,15 @@
           </section>
 
           <section class="panel device-panel">
-            <PanelTitle title="设备运行状态" :extra="`在线率 ${deviceOnlineRate}`" />
+            <PanelTitle title="设备运行状态" :extra="`设备在线率 ${deviceOnlineRate}`" />
             <div class="device-list">
               <button v-for="device in state.devices" :key="device.name" class="device-line" @click="openDeviceDetail(device)">
-                <span class="device-emblem" :class="deviceIconClass(device.name)"><i></i></span>
+                <span class="device-emblem">
+                  <Video v-if="device.name.includes('摄像')" :size="18" />
+                  <Radio v-else-if="device.name.includes('RFID')" :size="18" />
+                  <Bell v-else-if="device.name.includes('报警')" :size="18" />
+                  <HardDrive v-else-if="device.name.includes('硬盘') || device.name.includes('录像')" :size="18" />
+                </span>
                 <strong>{{ device.name }}</strong>
                 <em>总数</em>
                 <b>{{ device.total }}</b>
@@ -99,33 +104,24 @@
           <section class="panel car-panel">
             <PanelTitle title="矿车统计" :extra="`车辆工作率 ${carWorkRate}`" />
             <div class="car-dashboard">
-              <button class="car-metric running" @click="openCarDetail('运输中', state.cars.online)">
-                <strong>{{ state.cars.online }}</strong>
-                <span>运输中（辆）</span>
-                <em>工作占比 {{ carRatio(state.cars.online) }}</em>
-              </button>
-              <button class="car-total-meter" @click="openCarDetail('总数', state.cars.total)">
-                <i></i>
-                <b>{{ state.cars.total }}</b>
-                <span>总数（辆）</span>
-              </button>
-              <button class="car-metric idle" @click="openCarDetail('空闲中', state.cars.offline)">
-                <strong>{{ state.cars.offline }}</strong>
-                <span>空闲中（辆）</span>
-                <em>空闲占比 {{ carRatio(state.cars.offline) }}</em>
-              </button>
-              <button class="car-mini-truck truck-one" @click="openCarDetail('运输中', state.cars.online)">
-                <b>{{ splitCount(state.cars.online, 0) }}</b><i></i>
-              </button>
-              <button class="car-mini-truck truck-two" @click="openCarDetail('运输中', state.cars.online)">
-                <b>{{ splitCount(state.cars.online, 1) }}</b><i></i>
-              </button>
-              <button class="car-mini-truck idle-one" @click="openCarDetail('空闲中', state.cars.offline)">
-                <b>{{ splitCount(state.cars.offline, 0) }}</b><i></i>
-              </button>
-              <button class="car-mini-truck idle-two" @click="openCarDetail('空闲中', state.cars.offline)">
-                <b>{{ splitCount(state.cars.offline, 1) }}</b><i></i>
-              </button>
+              <div class="car-stats-row">
+                <button class="car-stat-card running-card" @click="openCarDetail('运输中', state.cars.online)">
+                  <strong>{{ state.cars.online }}</strong>
+                  <span>运输中（辆）</span>
+                </button>
+                <div class="car-total-ring" @click="openCarDetail('总数', state.cars.total)">
+                  <div class="ring-decor ring-left"></div>
+                  <div class="ring-decor ring-right"></div>
+                  <div class="ring-content">
+                    <strong>{{ state.cars.total }}</strong>
+                    <span>总数（辆）</span>
+                  </div>
+                </div>
+                <button class="car-stat-card idle-card" @click="openCarDetail('空闲中', state.cars.offline)">
+                  <strong>{{ state.cars.offline }}</strong>
+                  <span>空闲中（辆）</span>
+                </button>
+              </div>
             </div>
           </section>
         </aside>
@@ -154,70 +150,70 @@
               </button>
             </div>
             <div v-if="!useFocusLayout" class="video-content">
-              <button
-                v-if="videoPageTotal > 1"
-                class="video-page-button prev"
-                :disabled="videoPage <= 1"
-                @click="changeVideoPage(videoPage - 1)"
-              >
-                ‹
-              </button>
-              <div class="video-grid" :class="`count-${videoGridCount}`">
-                <div
-                  v-for="camera in gridCameras"
-                  :key="camera.label"
-                  class="video-tile"
-                  role="button"
-                  tabindex="0"
-                  @click="openVideoDialog(camera)"
-                  @keydown.enter.prevent="openVideoDialog(camera)"
-                  @keydown.space.prevent="openVideoDialog(camera)"
-                >
-                  <iframe
-                    v-if="isPageVisible && camera.url && camera.url !== 'about:blank'"
-                    :src="camera.url"
-                    loading="lazy"
-                    referrerpolicy="no-referrer"
-                  ></iframe>
-                  <div v-else class="mine-video-fallback">
-                    <div class="fallback-time">{{ dateText }} {{ timeText }}</div>
-                    <div class="rail-scene">
-                      <span class="rail-one"></span>
-                      <span class="rail-two"></span>
-                      <span class="ore-car"></span>
-                    </div>
-                    <strong>{{ camera.label }}</strong>
-                  </div>
-                  <div class="video-caption">
-                    <button
-                      class="siren-talk-button thumb-talk-button"
-                      :disabled="!sirenIpForLabel(camera.label)"
-                      :title="sirenIpForLabel(camera.label) ? `喊话设备：${sirenIpForLabel(camera.label)}` : '当前画面未配置喊话设备'"
-                      @click.stop="openSirenDialog(camera)"
-                    >
-                      <i></i>
-                      <em>喊话</em>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <button
-                v-if="videoPageTotal > 1"
-                class="video-page-button next"
-                :disabled="videoPage >= videoPageTotal"
-                @click="changeVideoPage(videoPage + 1)"
-              >
-                ›
-              </button>
-              <div v-if="videoPageTotal > 1" class="video-page-dots">
-                <button
-                  v-for="page in videoPageTotal"
-                  :key="page"
-                  :class="{ active: page === videoPage }"
-                  @click="changeVideoPage(page)"
-                ></button>
-              </div>
+      <button
+        v-if="videoPageTotal > 1"
+        class="video-page-button prev"
+        :disabled="videoPage <= 1"
+        @click="changeVideoPage(videoPage - 1)"
+      >
+        ‹
+      </button>
+      <div class="video-grid" :class="`count-${videoGridCount}`">
+        <div
+          v-for="camera in gridCameras"
+          :key="camera.label"
+          class="video-tile"
+          role="button"
+          tabindex="0"
+          @click="openVideoDialog(camera)"
+          @keydown.enter.prevent="openVideoDialog(camera)"
+          @keydown.space.prevent="openVideoDialog(camera)"
+        >
+          <iframe
+            v-if="isPageVisible && camera.url && camera.url !== 'about:blank'"
+            :src="camera.url"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          ></iframe>
+          <div v-else class="mine-video-fallback">
+            <div class="fallback-time">{{ dateText }} {{ timeText }}</div>
+            <div class="rail-scene">
+              <span class="rail-one"></span>
+              <span class="rail-two"></span>
+              <span class="ore-car"></span>
             </div>
+            <strong>{{ camera.label }}</strong>
+          </div>
+          <div class="video-caption">
+            <button
+              class="siren-talk-button thumb-talk-button"
+              :disabled="!sirenIpForLabel(camera.label)"
+              :title="sirenIpForLabel(camera.label) ? `喊话设备：${sirenIpForLabel(camera.label)}` : '当前画面未配置喊话设备'"
+              @click.stop="openSirenDialog(camera)"
+            >
+              <i></i>
+              <em>喊话</em>
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        v-if="videoPageTotal > 1"
+        class="video-page-button next"
+        :disabled="videoPage >= videoPageTotal"
+        @click="changeVideoPage(videoPage + 1)"
+      >
+        ›
+      </button>
+      <div v-if="videoPageTotal > 1" class="video-page-dots">
+        <button
+          v-for="page in videoPageTotal"
+          :key="page"
+          :class="{ active: page === videoPage }"
+          @click="changeVideoPage(page)"
+        ></button>
+      </div>
+    </div>
             <div v-else class="video-content video-focus-layout">
               <div
                 class="main-video"
@@ -299,22 +295,62 @@
                 <button :class="{ active: materialType === 'ai' }" @click="setMaterialType('ai')">AI统计</button>
                 <button :class="{ active: materialType === 'ld' }" @click="setMaterialType('ld')">雷达统计</button>
               </div>
-              <label>
-                <span>{{ selectedDeptLabel }}</span>
+              <div class="dept-select">
+                <span class="select-label">{{ selectedDeptLabel }}</span>
+                <span class="select-arrow"></span>
                 <select v-model="selectedDept" @change="refreshMaterials">
-                  <option value="总览">总览</option>
+                  <option value="0">总览</option>
                   <option v-for="item in state.selectOptions" :key="item.value" :value="item.value">
                     {{ item.lable }}
                   </option>
                 </select>
-              </label>
+              </div>
             </div>
-            <div class="silo-row">
+            <div class="silo-scroll-container" v-if="filteredMaterials.length > 5">
+              <button class="scroll-btn scroll-left" @click="scrollSilo(-1)">
+                <i></i>
+              </button>
+              <div class="silo-scroll-wrapper" ref="siloScrollRef">
+                <div class="silo-row">
+                  <button
+                    v-for="item in filteredMaterials"
+                    :key="`${item.lname}-${item.shitype}`"
+                    class="silo-card"
+                  :class="{ offline: String(item.status) !== '0', 'radar-mode': materialType === 'ld' }"
+                    @click="openMaterialDetail(item)"
+                  >
+                    <span class="ore-ton">矿石：{{ numberText(item.ton) }}吨</span>
+                    <div class="silo-scale">
+                      <em v-for="scale in getScales(item.all_quantity)" :key="scale">{{ scale }}</em>
+                    </div>
+                    <div
+                      class="silo-tube"
+                      :class="{ filled: hasOre(item), dumping: shouldDumpOre(item) }"
+                      :style="{ '--level': `${levelPercent(item)}%` }"
+                    >
+                      <span class="ore-fall" aria-hidden="true"></span>
+                      <span class="ore-particles" aria-hidden="true">
+                        <em v-for="dot in 7" :key="dot"></em>
+                      </span>
+                      <span class="ore-impact" aria-hidden="true"></span>
+                      <i :style="{ height: `${levelPercent(item)}%` }"></i>
+                      <b>{{ numberText(item.now_quantity) }}米</b>
+                    </div>
+                    <strong>{{ item.lname }}</strong>
+                    <small>{{ item.shitype }}</small>
+                  </button>
+                </div>
+              </div>
+              <button class="scroll-btn scroll-right" @click="scrollSilo(1)">
+                <i></i>
+              </button>
+            </div>
+            <div class="silo-row" v-else>
               <button
                 v-for="item in filteredMaterials"
                 :key="`${item.lname}-${item.shitype}`"
                 class="silo-card"
-                :class="{ offline: String(item.status) !== '0' }"
+                :class="{ offline: String(item.status) !== '0', 'radar-mode': materialType === 'ld' }"
                 @click="openMaterialDetail(item)"
               >
                 <span class="ore-ton">矿石：{{ numberText(item.ton) }}吨</span>
@@ -343,7 +379,7 @@
 
         <aside class="right-stack">
           <section class="panel chart-panel">
-            <PanelTitle title="年度出矿量（万吨）" :extra="`累计 ${numberText(state.bar.total)}`" />
+            <PanelTitle title="年度出矿量（吨）" :extra="`累计 ${numberText(state.bar.total)}`" />
             <div ref="barChartRef" class="bar-chart"></div>
           </section>
 
@@ -674,6 +710,7 @@ import * as echarts from 'echarts'
 import { useDpData } from './composables/useDpData'
 import { dpApi, putJson } from './services/api'
 import type { CameraItem, CarsLogItem, DeviceStatus, MaterialLevel, WarningItem, WellLog } from './services/types'
+import { Video, Radio, Bell, HardDrive } from 'lucide-vue-next'
 
 type ThemeName = 'command' | 'hologram'
 type VideoDisplayMode = 'grid' | 'focus'
@@ -793,6 +830,7 @@ const isPageVisible = ref(document.visibilityState !== 'hidden')
 const barChartRef = ref<HTMLDivElement | null>(null)
 const alarmTableBodyRef = ref<HTMLDivElement | null>(null)
 const videoThumbsRef = ref<HTMLDivElement | null>(null)
+const siloScrollRef = ref<HTMLDivElement | null>(null)
 const boardScaleX = ref(1)
 const boardScaleY = ref(1)
 const detail = ref<DetailState | null>(null)
@@ -837,19 +875,24 @@ let lastDeviceNoticeAt = 0
 let userSelectedCameraGroup = false
 let groupCycleGroupIndex = 0
 let groupCycleCameraIndex = 0
+let renderBarChartTimer = 0
+let lastBarChartData = ''
+let lastTheme = ''
+let resizeTimer = 0
 const HANDLE_API_BASE = (import.meta.env.VITE_HANDLE_API_BASE_URL || 'http://192.168.246.136').replace(/\/$/, '')
 const MEDIA_BASE = (import.meta.env.VITE_MEDIA_BASE_URL || import.meta.env.VITE_API_TARGET || HANDLE_API_BASE || '').replace(/\/$/, '')
 const DEFAULT_CAMERA_GROUP_LABEL = '三坑'
 const DATUN_WEATHER_LATITUDE = 23.44
 const DATUN_WEATHER_LONGITUDE = 103.2
-const FULL_REFRESH_INTERVAL = Number(import.meta.env.VITE_FULL_REFRESH_INTERVAL || 120000)
-const ALERT_POLL_INTERVAL = Number(import.meta.env.VITE_ALERT_POLL_INTERVAL || 30000)
-const NOTICE_REPEAT_INTERVAL = Number(import.meta.env.VITE_NOTICE_REPEAT_INTERVAL || 30000)
+const FULL_REFRESH_INTERVAL = Number(import.meta.env.VITE_FULL_REFRESH_INTERVAL || 180000)
+const ALERT_POLL_INTERVAL = Number(import.meta.env.VITE_ALERT_POLL_INTERVAL || 45000)
+const NOTICE_REPEAT_INTERVAL = Number(import.meta.env.VITE_NOTICE_REPEAT_INTERVAL || 45000)
 const NOTICE_TOAST_DURATION = 3 * 60 * 1000
 const ALARM_SCROLL_SPEED = Number(import.meta.env.VITE_ALARM_SCROLL_SPEED || 18)
 const VIDEO_GROUP_CYCLE_INTERVAL = Number(import.meta.env.VITE_VIDEO_GROUP_CYCLE_INTERVAL || 60000)
 const BAR_VISIBLE_MONTHS = Number(import.meta.env.VITE_BAR_VISIBLE_MONTHS || 6)
 const IO_PAGE_SIZE = Number(import.meta.env.VITE_IO_PAGE_SIZE || 8)
+const MAX_WARNING_DISPLAY = 30
 const SIREN_IP_RULES = [
   { keywords: ['1920', '挂车'], ip: '192.168.18.124' },
   { keywords: ['61号', '61#', '61'], ip: '192.168.18.118' },
@@ -875,6 +918,7 @@ const deviceOnlineRate = computed(() => {
 })
 
 const carWorkRate = computed(() => formatRate(state.cars.online, state.cars.total))
+const visibleWarnings = computed(() => state.warnings.slice(0, MAX_WARNING_DISPLAY))
 
 const videoGroups = computed(() => {
   const groups = state.live.filter(group => (group.children || []).length)
@@ -919,7 +963,13 @@ const dateText = computed(() => formatDate(now.value))
 const timeText = computed(() => now.value.toLocaleTimeString('zh-CN', { hour12: false }))
 const weekText = computed(() => now.value.toLocaleDateString('zh-CN', { weekday: 'long' }))
 const warningTypeLabel = computed(() => warningType.value === '全部' ? '今日报警' : `${warningType.value}`)
-const filteredMaterials = computed(() => state.materials.filter(item => !String(item.lname || '').includes('34号')))
+const filteredMaterials = computed(() => {
+  let result = state.materials.filter(item => !String(item.lname || '').includes('34号'))
+  if (selectedDept.value !== '0') {
+    result = result.filter(item => String(item.dept || '') === selectedDept.value)
+  }
+  return result
+})
 const visibleWells = computed(() => state.logs.detail.filter(item => !String(item.name || '').includes('34号')))
 const ioTotalPages = computed(() => Math.max(1, Math.ceil((ioDialog.value?.total || 0) / (ioDialog.value?.pageSize || IO_PAGE_SIZE))))
 const useFocusLayout = computed(() => videoDisplayMode.value === 'focus' && currentGroupCameras.value.length >= 4)
@@ -1257,49 +1307,42 @@ function repeatActiveNotices() {
   }
 }
 
-function runAlarmAutoScroll(time = performance.now()) {
-  alarmScrollFrame = window.requestAnimationFrame(runAlarmAutoScroll)
-  if (!alarmScrollLastTime) {
-    alarmScrollLastTime = time
-    return
-  }
-
-  const delta = Math.min(80, time - alarmScrollLastTime)
-  alarmScrollLastTime = time
-  if (!isPageVisible.value || time < alarmScrollHoldUntil) return
+function runAlarmAutoScroll() {
+  if (!isPageVisible.value || alarmScrollPaused.value) return
 
   const element = alarmTableBodyRef.value
-  if (!element || alarmScrollPaused.value) return
+  if (!element) return
+  
   if (element.scrollHeight <= element.clientHeight + 2) {
     alarmScrollPosition = 0
     return
   }
+
+  const now = Date.now()
+  if (now < alarmScrollHoldUntil) return
 
   const maxScrollTop = element.scrollHeight - element.clientHeight
   if (Math.abs(element.scrollTop - alarmScrollPosition) > 2) {
     alarmScrollPosition = element.scrollTop
   }
 
-  const nextTop = alarmScrollPosition + (alarmScrollDirection * ALARM_SCROLL_SPEED * delta) / 1000
+  const scrollStep = 1
+  const nextTop = alarmScrollPosition + (alarmScrollDirection * scrollStep)
 
   if (nextTop >= maxScrollTop) {
     alarmScrollDirection = -1
     alarmScrollPosition = maxScrollTop
     element.scrollTop = alarmScrollPosition
-    alarmScrollHoldUntil = time + 900
-    return
-  }
-
-  if (nextTop <= 0) {
+    alarmScrollHoldUntil = now + 2500
+  } else if (nextTop <= 0) {
     alarmScrollDirection = 1
     alarmScrollPosition = 0
     element.scrollTop = alarmScrollPosition
-    alarmScrollHoldUntil = time + 900
-    return
+    alarmScrollHoldUntil = now + 2500
+  } else {
+    alarmScrollPosition = nextTop
+    element.scrollTop = alarmScrollPosition
   }
-
-  alarmScrollPosition = nextTop
-  element.scrollTop = alarmScrollPosition
 }
 
 async function pollAlertState() {
@@ -1574,7 +1617,7 @@ function shouldDumpOre(item: MaterialLevel) {
 }
 
 function shouldPlayThumb(camera: CameraItem) {
-  return isPageVisible.value && visibleThumbLabels.value.has(camera.label) && Boolean(camera.url && camera.url !== 'about:blank')
+  return isPageVisible.value && videoDisplayMode.value === 'focus' && visibleThumbLabels.value.has(camera.label) && Boolean(camera.url && camera.url !== 'about:blank')
 }
 
 function setThumbRef(label: string, element: unknown) {
@@ -1704,6 +1747,16 @@ function carRatio(value: number) {
 function splitCount(value: number, index: 0 | 1) {
   const count = Math.max(0, Number(value || 0))
   return index === 0 ? Math.ceil(count / 2) : Math.floor(count / 2)
+}
+
+function scrollSilo(direction: number) {
+  const wrapper = siloScrollRef.value
+  if (!wrapper) return
+  const scrollAmount = 200
+  wrapper.scrollBy({
+    left: scrollAmount * direction,
+    behavior: 'smooth'
+  })
 }
 
 function openMaterialDetail(item: MaterialLevel) {
@@ -1905,81 +1958,92 @@ function openBarDetail(month: string, value: number) {
 function renderBarChart() {
   if (!barChartRef.value) return
   if (!isPageVisible.value) return
-  if (!barChart) {
-    barChart = echarts.init(barChartRef.value)
-    barChart.on('click', params => {
-      const name = String(params.name || '')
-      const value = Number(params.value || 0)
-      openBarDetail(name, value)
-    })
-  }
 
-  const isCommand = theme.value === 'command'
-  const primary = isCommand ? '#ff9c25' : '#16d9ff'
-  const secondary = isCommand ? '#8b3b16' : '#265dff'
-  const axis = isCommand ? 'rgba(255, 216, 156, .72)' : 'rgba(197, 239, 255, .7)'
-  const grid = isCommand ? 'rgba(255, 146, 43, .2)' : 'rgba(45, 176, 255, .22)'
   const barData = barChartData()
+  const currentData = `${barData.xA.join('|')}|${barData.yA.join('|')}|${theme.value}`
+  
+  if (currentData === lastBarChartData) return
+  lastBarChartData = currentData
 
-  barChart.setOption({
-    grid: { left: 70, right: 14, top: 44, bottom: barData.zoomEnabled ? 82 : 64 },
-    tooltip: { trigger: 'axis', backgroundColor: 'rgba(5,7,12,.94)', borderColor: primary, textStyle: { color: '#fff' } },
-    xAxis: {
-      type: 'category',
-      data: barData.xA,
-      axisLine: { show: false },
-      axisTick: { show: false },
-      axisLabel: { color: axis, rotate: 45, fontSize: 15, margin: 14, interval: 0 }
-    },
-    yAxis: {
-      type: 'value',
-      splitLine: { lineStyle: { color: grid, type: 'dashed' } },
-      axisLabel: { color: axis, fontSize: 15 }
-    },
-    series: [
-      {
-        name: '出矿量',
-        type: 'bar',
-        data: barData.yA,
-        barWidth: 24,
-        barMinHeight: 3,
-        itemStyle: {
-          borderRadius: [8, 8, 0, 0],
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: primary },
-            { offset: 1, color: secondary }
-          ])
-        }
-      }
-    ],
-    dataZoom: barData.zoomEnabled
-      ? [
-          {
-            type: 'slider',
-            xAxisIndex: 0,
-            startValue: barData.startValue,
-            endValue: barData.endValue,
-            height: 14,
-            bottom: 18,
-            borderColor: grid,
-            fillerColor: isCommand ? 'rgba(255, 156, 37, .16)' : 'rgba(32, 215, 255, .16)',
-            handleStyle: { color: primary },
-            textStyle: { color: axis },
-            brushSelect: false,
-            showDetail: false
-          },
-          {
-            type: 'inside',
-            xAxisIndex: 0,
-            startValue: barData.startValue,
-            endValue: barData.endValue,
-            zoomOnMouseWheel: false,
-            moveOnMouseMove: true,
-            moveOnMouseWheel: true
+  window.clearTimeout(renderBarChartTimer)
+  renderBarChartTimer = window.setTimeout(() => {
+    if (!isPageVisible.value) return
+    
+    if (!barChart) {
+      barChart = echarts.init(barChartRef.value)
+      barChart.on('click', params => {
+        const name = String(params.name || '')
+        const value = Number(params.value || 0)
+        openBarDetail(name, value)
+      })
+    }
+
+    const isCommand = theme.value === 'command'
+    const primary = isCommand ? '#ff9c25' : '#16d9ff'
+    const secondary = isCommand ? '#8b3b16' : '#265dff'
+    const axis = isCommand ? 'rgba(255, 216, 156, .72)' : 'rgba(197, 239, 255, .7)'
+    const grid = isCommand ? 'rgba(255, 146, 43, .2)' : 'rgba(45, 176, 255, .22)'
+
+    barChart.setOption({
+      grid: { left: 70, right: 14, top: 44, bottom: barData.zoomEnabled ? 82 : 64 },
+      tooltip: { trigger: 'axis', backgroundColor: 'rgba(5,7,12,.94)', borderColor: primary, textStyle: { color: '#fff' } },
+      xAxis: {
+        type: 'category',
+        data: barData.xA,
+        axisLine: { show: false },
+        axisTick: { show: false },
+        axisLabel: { color: axis, rotate: 45, fontSize: 15, margin: 14, interval: 0 }
+      },
+      yAxis: {
+        type: 'value',
+        splitLine: { lineStyle: { color: grid, type: 'dashed' } },
+        axisLabel: { color: axis, fontSize: 15 }
+      },
+      series: [
+        {
+          name: '出矿量',
+          type: 'bar',
+          data: barData.yA,
+          barWidth: 24,
+          barMinHeight: 3,
+          itemStyle: {
+            borderRadius: [8, 8, 0, 0],
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: primary },
+              { offset: 1, color: secondary }
+            ])
           }
-        ]
-      : []
-  }, { notMerge: true, lazyUpdate: true })
+        }
+      ],
+      dataZoom: barData.zoomEnabled
+        ? [
+            {
+              type: 'slider',
+              xAxisIndex: 0,
+              startValue: barData.startValue,
+              endValue: barData.endValue,
+              height: 14,
+              bottom: 18,
+              borderColor: grid,
+              fillerColor: isCommand ? 'rgba(255, 156, 37, .16)' : 'rgba(32, 215, 255, .16)',
+              handleStyle: { color: primary },
+              textStyle: { color: axis },
+              brushSelect: false,
+              showDetail: false
+            },
+            {
+              type: 'inside',
+              xAxisIndex: 0,
+              startValue: barData.startValue,
+              endValue: barData.endValue,
+              zoomOnMouseWheel: false,
+              moveOnMouseMove: true,
+              moveOnMouseWheel: true
+            }
+          ]
+        : []
+    }, { notMerge: false, lazyUpdate: true, silent: true })
+  }, 200)
 }
 
 function barChartData() {
@@ -2012,11 +2076,14 @@ function currentBarMonthIndex(months: string[]) {
 }
 
 function updateBoardScale() {
-  const width = window.innerWidth
-  const height = window.innerHeight
-  boardScaleX.value = width / 1920
-  boardScaleY.value = height / 1080
-  barChart?.resize()
+  window.clearTimeout(resizeTimer)
+  resizeTimer = window.setTimeout(() => {
+    const width = window.innerWidth
+    const height = window.innerHeight
+    boardScaleX.value = width / 1920
+    boardScaleY.value = height / 1080
+    barChart?.resize()
+  }, 100)
 }
 
 function handleVisibilityChange() {
@@ -2068,24 +2135,30 @@ watch(autoCycleEnabled, enabled => {
   }
 })
 
-watch(() => state.warnings.map(item => warningKey(item)).join('\u0001'), () => {
+watch(() => state.warnings.map(item => warningKey(item)).join('\u0001'), (newVal, oldVal) => {
+  if (newVal === oldVal || !isPageVisible.value) return
   const freshWarning = state.warnings.find(item => !knownWarningKeys.has(warningKey(item)))
   rememberCurrentWarnings()
   if (warningMonitorReady && freshWarning) triggerWarningNotice(freshWarning)
-})
+}, { flush: 'post' })
 
-watch(() => `${state.warningSummary.total}|${state.warningSummary.wcl}`, () => {
+watch(() => `${state.warningSummary.total}|${state.warningSummary.wcl}`, (newVal, oldVal) => {
+  if (newVal === oldVal || !isPageVisible.value) return
   checkWarningSummaryNotice()
-})
+}, { flush: 'post' })
 
 watch(wsTick, (value, oldValue) => {
-  if (!warningMonitorReady || value === oldValue) return
+  if (!warningMonitorReady || value === oldValue || !isPageVisible.value) return
   rememberCurrentWarnings()
   rememberWarningSummary()
   triggerWarningNotice(latestWarningNotice())
-})
+}, { flush: 'post' })
 
-watch(() => state.devices.map(item => `${item.name}|${item.total}|${item.online}|${item.offline}`).join('\u0001'), () => {
+watch(() => state.devices.map(item => `${item.name}|${item.total}|${item.online}|${item.offline}`).join('\u0001'), (newVal, oldVal) => {
+  if (newVal === oldVal || !isPageVisible.value) {
+    rememberCurrentDevices()
+    return
+  }
   const offlineDevice = state.devices.find(item => {
     const offline = Number(item.offline || 0)
     const previous = knownDeviceOffline.get(item.name)
@@ -2093,10 +2166,16 @@ watch(() => state.devices.map(item => `${item.name}|${item.total}|${item.online}
   })
   rememberCurrentDevices()
   if (deviceMonitorReady && offlineDevice) triggerDeviceNotice(offlineDevice)
-})
+}, { flush: 'post' })
 
-watch(() => `${state.bar.total}|${state.bar.xA.join(',')}|${state.bar.yA.join(',')}`, () => nextTick(renderBarChart))
-watch(theme, () => nextTick(renderBarChart))
+watch(() => `${state.bar.total}|${state.bar.xA.join(',')}|${state.bar.yA.join(',')}`, (newVal, oldVal) => {
+  if (newVal === oldVal || !isPageVisible.value) return
+  nextTick(renderBarChart)
+}, { flush: 'post' })
+watch(theme, (newVal, oldVal) => {
+  if (newVal === oldVal) return
+  nextTick(renderBarChart)
+}, { flush: 'post' })
 
 onMounted(async () => {
   updateBoardScale()
@@ -2119,7 +2198,7 @@ onMounted(async () => {
   clockTimer = window.setInterval(() => {
     if (!isPageVisible.value) return
     now.value = new Date()
-  }, 1000)
+  }, 10000)
 
   refreshTimer = window.setInterval(() => {
     if (!isPageVisible.value) return
@@ -2132,7 +2211,7 @@ onMounted(async () => {
 
   noticeRepeatTimer = window.setInterval(repeatActiveNotices, NOTICE_REPEAT_INTERVAL)
 
-  alarmScrollFrame = window.requestAnimationFrame(runAlarmAutoScroll)
+  alarmScrollFrame = window.setInterval(runAlarmAutoScroll, 50)
 
   weatherTimer = window.setInterval(() => {
     if (!isPageVisible.value) return
@@ -2148,12 +2227,14 @@ onBeforeUnmount(() => {
   window.clearInterval(refreshTimer)
   window.clearInterval(alertPollTimer)
   window.clearInterval(noticeRepeatTimer)
-  window.cancelAnimationFrame(alarmScrollFrame)
+  window.clearInterval(alarmScrollFrame)
   window.clearInterval(weatherTimer)
   window.clearInterval(groupCycleTimer)
   window.clearTimeout(warningPulseTimer)
   window.clearTimeout(warningToastTimer)
   window.clearTimeout(deviceToastTimer)
+  window.clearTimeout(renderBarChartTimer)
+  window.clearTimeout(resizeTimer)
   thumbObserver?.disconnect()
   if (window.__dpTestWarning === pushTestWarning) delete window.__dpTestWarning
   if (window.__dpTestDeviceOffline === pushTestDeviceOffline) delete window.__dpTestDeviceOffline
