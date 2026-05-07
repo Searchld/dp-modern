@@ -319,7 +319,6 @@
                     :class="[materialSourceClass, { offline: String(item.status) !== '0' }]"
                     @click="openMaterialDetail(item)"
                   >
-                    <span class="source-badge">{{ materialSourceLabel }}</span>
                     <span class="ore-ton">{{ materialOreLabel(item) }}：{{ numberText(item.ton) }}吨</span>
                     <div class="silo-scale">
                       <em v-for="scale in getScales(item.all_quantity)" :key="scale">{{ scale }}</em>
@@ -354,7 +353,6 @@
                 :class="[materialSourceClass, { offline: String(item.status) !== '0' }]"
                 @click="openMaterialDetail(item)"
               >
-                <span class="source-badge">{{ materialSourceLabel }}</span>
                 <span class="ore-ton">{{ materialOreLabel(item) }}：{{ numberText(item.ton) }}吨</span>
                 <div class="silo-scale">
                   <em v-for="scale in getScales(item.all_quantity)" :key="scale">{{ scale }}</em>
@@ -1756,7 +1754,6 @@ function materialSourceText(type: MaterialStatsType) {
   return type === 'ai' ? 'AI视觉识别' : '雷达实测'
 }
 
-const materialSourceLabel = computed(() => materialSourceText(materialType.value))
 const materialSourceClass = computed(() => materialType.value === 'ai' ? 'ai-mode' : 'radar-mode')
 
 function materialOreLabel(item: MaterialLevel) {
