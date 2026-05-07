@@ -3985,3 +3985,17 @@ button {
   background: #c7ccd0;
   box-shadow: 16px 0 0 #c7ccd0;
 }
+
+/* 强制所有溜井石头变小 */
+.silo-tube i,
+.silo-card .silo-tube i,
+.silo-card .silo-tube.filled i,
+.silo-card .silo-tube.dumping i,
+.silo-card.radar-mode .silo-tube i,
+.silo-card.radar-mode .silo-tube.filled i,
+.silo-card.radar-mode .silo-tube.dumping i {
+  background-image: url('ore-3.png'), url('ore-1.png'), url('ore-2.png'), url('ore-4.png'), url('ore-5.png') !important;
+  background-size: cover, 18% 16%, 18% 16%, 18% 16%, 18% 16% !important;
+  background-position: center center, 15% 25%, 85% 25%, 15% 70%, 85% 70% !important;
+  background-repeat: no-repeat !important;
+}
