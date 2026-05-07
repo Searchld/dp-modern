@@ -8,6 +8,7 @@ import {
   mockLogs,
   mockMaterials,
   mockMineCars,
+  mockRadarMaterials,
   mockSelectOptions,
   mockWarnings,
   mockWarningSummary
@@ -116,7 +117,7 @@ export function useDpData() {
     if (apiResult && Array.isArray(apiResult)) {
       state.materials = apiResult.map(item => ({ ...item, dept: item.dept || dept }))
     } else {
-      state.materials = [...mockMaterials]
+      state.materials = [...(materialType.value === 'ld' ? mockRadarMaterials : mockMaterials)]
     }
   }
 

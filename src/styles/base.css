@@ -2213,7 +2213,7 @@ button {
   min-width: 174px;
   display: grid;
   grid-template-columns: 34px 1fr;
-  grid-template-rows: 34px 1fr 28px 20px;
+  grid-template-rows: 22px 30px 1fr 28px 20px;
   gap: 0 6px;
   padding: 8px 9px 9px;
   border: 1px solid color-mix(in srgb, var(--line) 38%, transparent) !important;
@@ -2238,6 +2238,53 @@ button {
 .silo-card.offline {
   filter: none;
   opacity: 1;
+}
+
+.silo-card.ai-mode {
+  --material-source: #ffb54d;
+  --material-source-soft: rgba(255, 156, 37, .16);
+  --material-source-line: rgba(255, 190, 108, .46);
+}
+
+.silo-card.radar-mode {
+  --material-source: #44e2ff;
+  --material-source-soft: rgba(68, 226, 255, .14);
+  --material-source-line: rgba(68, 226, 255, .48);
+  border-color: var(--material-source-line) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.045), transparent 38%),
+    radial-gradient(circle at 50% 12%, var(--material-source-soft), transparent 48%),
+    repeating-linear-gradient(90deg, transparent 0 13px, rgba(68, 226, 255, .035) 13px 14px),
+    rgba(255,255,255,.018) !important;
+}
+
+.dashboard-board[data-theme="hologram"] .silo-card.ai-mode {
+  --material-source: #84f0ff;
+  --material-source-soft: rgba(132, 240, 255, .14);
+  --material-source-line: rgba(132, 240, 255, .42);
+}
+
+.dashboard-board[data-theme="hologram"] .silo-card.radar-mode {
+  --material-source: #a7ffea;
+  --material-source-soft: rgba(40, 245, 161, .13);
+  --material-source-line: rgba(40, 245, 161, .48);
+}
+
+.source-badge {
+  grid-column: span 2;
+  justify-self: end;
+  z-index: 2;
+  padding: 3px 8px;
+  border: 1px solid var(--material-source-line, var(--line-soft));
+  border-radius: 999px;
+  color: var(--material-source, var(--accent));
+  background:
+    linear-gradient(90deg, transparent, var(--material-source-soft, rgba(255,255,255,.08)), transparent),
+    rgba(0, 0, 0, .34);
+  box-shadow: 0 0 10px var(--material-source-soft, var(--shadow));
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .ore-ton {
