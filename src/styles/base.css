@@ -2213,7 +2213,7 @@ button {
   min-width: 174px;
   display: grid;
   grid-template-columns: 34px 1fr;
-  grid-template-rows: 22px 30px 1fr 28px 20px;
+  grid-template-rows: 30px 1fr 28px 20px;
   gap: 0 6px;
   padding: 8px 9px 9px;
   border: 1px solid color-mix(in srgb, var(--line) 38%, transparent) !important;
@@ -2268,23 +2268,6 @@ button {
   --material-source: #a7ffea;
   --material-source-soft: rgba(40, 245, 161, .13);
   --material-source-line: rgba(40, 245, 161, .48);
-}
-
-.source-badge {
-  grid-column: span 2;
-  justify-self: end;
-  z-index: 2;
-  padding: 3px 8px;
-  border: 1px solid var(--material-source-line, var(--line-soft));
-  border-radius: 999px;
-  color: var(--material-source, var(--accent));
-  background:
-    linear-gradient(90deg, transparent, var(--material-source-soft, rgba(255,255,255,.08)), transparent),
-    rgba(0, 0, 0, .34);
-  box-shadow: 0 0 10px var(--material-source-soft, var(--shadow));
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1;
 }
 
 .ore-ton {
@@ -2547,10 +2530,16 @@ button {
   min-height: 2px !important;
   overflow: hidden !important;
   clip-path: polygon(0 9%, 5% 6%, 11% 12%, 18% 4%, 26% 8%, 33% 2%, 43% 7%, 51% 3%, 61% 10%, 70% 4%, 79% 8%, 89% 3%, 100% 7%, 100% 100%, 0 100%) !important;
-  background-image: url('ore-3.png'), url('ore-1.png'), url('ore-2.png'), url('ore-4.png'), url('ore-5.png') !important;
-  background-size: cover, 20% 18%, 20% 18%, 20% 18%, 20% 18% !important;
-  background-position: center center, 15% 25%, 85% 25%, 15% 70%, 85% 70% !important;
-  background-repeat: no-repeat !important;
+  background-image:
+    radial-gradient(ellipse at 20% 22%, var(--ore-chip-light) 0 7%, transparent 15%),
+    radial-gradient(ellipse at 68% 28%, var(--ore-chip-mid) 0 9%, transparent 18%),
+    radial-gradient(ellipse at 36% 62%, var(--ore-chip-dark) 0 8%, transparent 17%),
+    radial-gradient(ellipse at 82% 74%, var(--ore-chip-deep) 0 7%, transparent 15%),
+    repeating-linear-gradient(140deg, var(--ore-glow-soft) 0 1px, transparent 1px 17px),
+    linear-gradient(180deg, var(--ore-surface-light), var(--ore-surface-mid) 46%, var(--ore-surface-dark)) !important;
+  background-size: 92px 52px, 76px 48px, 86px 56px, 72px 46px, 34px 34px, 100% 100% !important;
+  background-position: 0 0, 24px 16px, 56px 4px, 88px 24px, 0 0, center center !important;
+  background-repeat: repeat !important;
   box-shadow:
     0 0 18px rgba(0,0,0,.42) inset,
     0 0 20px var(--shadow) !important;
@@ -2568,10 +2557,16 @@ button {
 .silo-card .silo-tube i,
 .silo-card .silo-tube.filled i,
 .silo-card .silo-tube.dumping i {
-  background-image: url('ore-3.png'), url('ore-1.png'), url('ore-2.png'), url('ore-4.png'), url('ore-5.png') !important;
-  background-size: cover, 20% 18%, 20% 18%, 20% 18%, 20% 18% !important;
-  background-position: center center, 15% 25%, 85% 25%, 15% 70%, 85% 70% !important;
-  background-repeat: no-repeat !important;
+  background-image:
+    radial-gradient(ellipse at 20% 22%, var(--ore-chip-light) 0 7%, transparent 15%),
+    radial-gradient(ellipse at 68% 28%, var(--ore-chip-mid) 0 9%, transparent 18%),
+    radial-gradient(ellipse at 36% 62%, var(--ore-chip-dark) 0 8%, transparent 17%),
+    radial-gradient(ellipse at 82% 74%, var(--ore-chip-deep) 0 7%, transparent 15%),
+    repeating-linear-gradient(140deg, var(--ore-glow-soft) 0 1px, transparent 1px 17px),
+    linear-gradient(180deg, var(--ore-surface-light), var(--ore-surface-mid) 46%, var(--ore-surface-dark)) !important;
+  background-size: 92px 52px, 76px 48px, 86px 56px, 72px 46px, 34px 34px, 100% 100% !important;
+  background-position: 0 0, 24px 16px, 56px 4px, 88px 24px, 0 0, center center !important;
+  background-repeat: repeat !important;
 }
 
 .silo-tube b {
@@ -2608,10 +2603,16 @@ button {
   min-height: 3px;
   border-radius: 14px 14px 10px 10px;
   clip-path: polygon(0 8%, 8% 5%, 15% 11%, 25% 4%, 36% 8%, 47% 3%, 58% 9%, 70% 5%, 82% 10%, 92% 4%, 100% 8%, 100% 100%, 0 100%);
-  background-image: url('ore-3.png'), url('ore-1.png'), url('ore-2.png'), url('ore-4.png'), url('ore-5.png') !important;
-  background-size: cover, 20% 18%, 20% 18%, 20% 18%, 20% 18% !important;
-  background-position: center center, 15% 25%, 85% 25%, 15% 70%, 85% 70% !important;
-  background-repeat: no-repeat !important;
+  background-image:
+    radial-gradient(ellipse at 20% 22%, var(--ore-chip-light) 0 7%, transparent 15%),
+    radial-gradient(ellipse at 68% 28%, var(--ore-chip-mid) 0 9%, transparent 18%),
+    radial-gradient(ellipse at 36% 62%, var(--ore-chip-dark) 0 8%, transparent 17%),
+    radial-gradient(ellipse at 82% 74%, var(--ore-chip-deep) 0 7%, transparent 15%),
+    repeating-linear-gradient(140deg, var(--ore-glow-soft) 0 1px, transparent 1px 17px),
+    linear-gradient(180deg, var(--ore-surface-light), var(--ore-surface-mid) 46%, var(--ore-surface-dark)) !important;
+  background-size: 92px 52px, 76px 48px, 86px 56px, 72px 46px, 34px 34px, 100% 100% !important;
+  background-position: 0 0, 24px 16px, 56px 4px, 88px 24px, 0 0, center center !important;
+  background-repeat: repeat !important;
   box-shadow:
     0 0 14px rgba(0,0,0,.38) inset,
     0 0 14px color-mix(in srgb, var(--shadow) 30%, transparent);
@@ -2753,10 +2754,16 @@ button {
   bottom: 6px !important;
   left: 5px !important;
   right: 5px !important;
-  background-image: url('ore-3.png'), url('ore-1.png'), url('ore-2.png'), url('ore-4.png'), url('ore-5.png') !important;
-  background-size: cover, 20% 18%, 20% 18%, 20% 18%, 20% 18% !important;
-  background-position: center center, 15% 25%, 85% 25%, 15% 70%, 85% 70% !important;
-  background-repeat: no-repeat !important;
+  background-image:
+    radial-gradient(ellipse at 20% 22%, var(--ore-chip-light) 0 7%, transparent 15%),
+    radial-gradient(ellipse at 68% 28%, var(--ore-chip-mid) 0 9%, transparent 18%),
+    radial-gradient(ellipse at 36% 62%, var(--ore-chip-dark) 0 8%, transparent 17%),
+    radial-gradient(ellipse at 82% 74%, var(--ore-chip-deep) 0 7%, transparent 15%),
+    repeating-linear-gradient(140deg, var(--ore-glow-soft) 0 1px, transparent 1px 17px),
+    linear-gradient(180deg, var(--ore-surface-light), var(--ore-surface-mid) 46%, var(--ore-surface-dark)) !important;
+  background-size: 92px 52px, 76px 48px, 86px 56px, 72px 46px, 34px 34px, 100% 100% !important;
+  background-position: 0 0, 24px 16px, 56px 4px, 88px 24px, 0 0, center center !important;
+  background-repeat: repeat !important;
 }
 
 .silo-card.radar-mode .silo-tube i::after {
@@ -4081,28 +4088,28 @@ button {
   background-color: #2e271f !important;
   background-image:
     radial-gradient(ellipse at 50% 0, rgba(215, 188, 136, .34), transparent 34%),
-    linear-gradient(180deg, rgba(255,255,255,.12), transparent 18%, rgba(0,0,0,.28)),
-    url('ore-1.png'),
-    url('ore-2.png'),
-    url('ore-3.png'),
-    url('ore-4.png'),
-    url('ore-5.png') !important;
+    radial-gradient(ellipse at 18% 28%, var(--ore-chip-light) 0 8%, transparent 17%),
+    radial-gradient(ellipse at 62% 22%, var(--ore-chip-mid) 0 9%, transparent 19%),
+    radial-gradient(ellipse at 34% 66%, var(--ore-chip-dark) 0 8%, transparent 18%),
+    radial-gradient(ellipse at 82% 70%, var(--ore-chip-deep) 0 7%, transparent 16%),
+    repeating-linear-gradient(140deg, var(--ore-glow-soft) 0 1px, transparent 1px 16px),
+    linear-gradient(180deg, rgba(255,255,255,.12), transparent 18%, rgba(0,0,0,.28)) !important;
   background-size:
     100% 22px,
-    100% 100%,
-    18px 14px,
-    22px 16px,
-    26px 18px,
-    20px 15px,
-    16px 13px !important;
+    58px 42px,
+    64px 44px,
+    72px 48px,
+    54px 38px,
+    30px 30px,
+    100% 100% !important;
   background-position:
     center top,
-    center center,
-    6px 8px,
-    28px 18px,
-    52px 4px,
-    78px 24px,
-    104px 12px !important;
+    4px 6px,
+    32px 16px,
+    58px 4px,
+    86px 22px,
+    0 0,
+    center center !important;
   background-repeat: repeat !important;
   filter: saturate(.92) contrast(1.08);
   box-shadow:
@@ -4113,7 +4120,15 @@ button {
 .dashboard-board[data-theme="hologram"] .material-panel .silo-tube i,
 .dashboard-board[data-theme="hologram"] .material-panel .silo-card .silo-tube i {
   background-color: #23313a !important;
-  filter: saturate(.78) hue-rotate(174deg) brightness(.92) contrast(1.08);
+  background-image:
+    radial-gradient(ellipse at 50% 0, rgba(135, 235, 255, .22), transparent 34%),
+    radial-gradient(ellipse at 18% 28%, rgba(126, 224, 255, .28) 0 8%, transparent 17%),
+    radial-gradient(ellipse at 62% 22%, rgba(73, 191, 255, .22) 0 9%, transparent 19%),
+    radial-gradient(ellipse at 34% 66%, rgba(21, 92, 128, .42) 0 8%, transparent 18%),
+    radial-gradient(ellipse at 82% 70%, rgba(5, 45, 70, .48) 0 7%, transparent 16%),
+    repeating-linear-gradient(140deg, rgba(98, 227, 255, .12) 0 1px, transparent 1px 16px),
+    linear-gradient(180deg, rgba(255,255,255,.09), transparent 18%, rgba(0,0,0,.24)) !important;
+  filter: saturate(.82) brightness(.96) contrast(1.08);
   box-shadow:
     0 0 18px rgba(0,0,0,.46) inset,
     0 0 13px rgba(32, 215, 255, .22) !important;
