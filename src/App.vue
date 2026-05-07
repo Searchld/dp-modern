@@ -328,11 +328,6 @@
                       :class="{ filled: hasOre(item), dumping: shouldDumpOre(item) }"
                       :style="{ '--level': `${levelPercent(item)}%` }"
                     >
-                      <span class="ore-fall" aria-hidden="true"></span>
-                      <span class="ore-particles" aria-hidden="true">
-                        <em v-for="dot in 7" :key="dot"></em>
-                      </span>
-                      <span class="ore-impact" aria-hidden="true"></span>
                       <i :style="{ height: `${levelPercent(item)}%` }"></i>
                       <b>{{ numberText(item.now_quantity) }}米</b>
                     </div>
@@ -362,11 +357,6 @@
                   :class="{ filled: hasOre(item), dumping: shouldDumpOre(item) }"
                   :style="{ '--level': `${levelPercent(item)}%` }"
                 >
-                  <span class="ore-fall" aria-hidden="true"></span>
-                  <span class="ore-particles" aria-hidden="true">
-                    <em v-for="dot in 7" :key="dot"></em>
-                  </span>
-                  <span class="ore-impact" aria-hidden="true"></span>
                   <i :style="{ height: `${levelPercent(item)}%` }"></i>
                   <b>{{ numberText(item.now_quantity) }}米</b>
                 </div>

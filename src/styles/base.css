@@ -4167,3 +4167,204 @@ button {
   height: 4px;
   box-shadow: 0 0 4px var(--ore-edge);
 }
+
+/* 溜井料位监测静态化改版：保留卡片结构，移除井内下落动画，用数据源色彩区分 AI / 雷达与两套主题。 */
+.material-panel .silo-card.ai-mode {
+  --material-source: #ffb45c;
+  --material-source-soft: rgba(255, 180, 92, .18);
+  --material-source-line: rgba(255, 194, 117, .5);
+  --material-source-deep: rgba(166, 80, 24, .36);
+  --material-fill-top: #d0a16a;
+  --material-fill-mid: #846b4f;
+  --material-fill-bottom: #3b3128;
+  --material-chip: rgba(255, 220, 155, .24);
+  --material-glass: rgba(255, 177, 93, .09);
+}
+
+.material-panel .silo-card.radar-mode {
+  --material-source: #42e6ff;
+  --material-source-soft: rgba(66, 230, 255, .17);
+  --material-source-line: rgba(94, 234, 255, .56);
+  --material-source-deep: rgba(15, 111, 137, .36);
+  --material-fill-top: #7eeaff;
+  --material-fill-mid: #2f9fbd;
+  --material-fill-bottom: #154258;
+  --material-chip: rgba(188, 250, 255, .28);
+  --material-glass: rgba(68, 226, 255, .11);
+}
+
+.dashboard-board[data-theme="hologram"] .material-panel .silo-card.ai-mode {
+  --material-source: #f7c86f;
+  --material-source-soft: rgba(247, 200, 111, .14);
+  --material-source-line: rgba(255, 216, 141, .44);
+  --material-source-deep: rgba(186, 118, 41, .28);
+  --material-fill-top: #d9b979;
+  --material-fill-mid: #768391;
+  --material-fill-bottom: #263444;
+  --material-chip: rgba(255, 226, 157, .22);
+  --material-glass: rgba(255, 211, 132, .08);
+}
+
+.dashboard-board[data-theme="hologram"] .material-panel .silo-card.radar-mode {
+  --material-source: #78ffd8;
+  --material-source-soft: rgba(120, 255, 216, .16);
+  --material-source-line: rgba(120, 255, 216, .52);
+  --material-source-deep: rgba(18, 156, 131, .32);
+  --material-fill-top: #a8ffec;
+  --material-fill-mid: #3fcfb8;
+  --material-fill-bottom: #125b6b;
+  --material-chip: rgba(210, 255, 247, .26);
+  --material-glass: rgba(120, 255, 216, .1);
+}
+
+.material-panel .silo-card {
+  border-color: color-mix(in srgb, var(--material-source-line) 72%, transparent) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), transparent 34%),
+    radial-gradient(circle at 50% 12%, var(--material-source-soft), transparent 50%),
+    linear-gradient(145deg, color-mix(in srgb, var(--material-source-deep) 52%, transparent), rgba(0,0,0,.2)) !important;
+  box-shadow:
+    0 0 18px rgba(0,0,0,.32) inset,
+    0 0 16px color-mix(in srgb, var(--material-source) 26%, transparent);
+}
+
+.material-panel .silo-card::before {
+  inset: 6px;
+  border-color: color-mix(in srgb, var(--material-source-line) 58%, transparent);
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--material-source) 10%, transparent), transparent) top / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--material-source) 8%, transparent), transparent) bottom / 100% 1px no-repeat;
+}
+
+.material-panel .ore-ton {
+  color: var(--material-source);
+  border-color: color-mix(in srgb, var(--material-source-line) 74%, transparent);
+  background:
+    linear-gradient(90deg, transparent, var(--material-source-soft), transparent),
+    rgba(0,0,0,.18);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--material-source) 18%, transparent) inset;
+}
+
+.material-panel .silo-scale {
+  color: color-mix(in srgb, var(--material-source) 54%, var(--muted));
+}
+
+.material-panel .silo-scale em::after {
+  background: color-mix(in srgb, var(--material-source) 54%, transparent);
+}
+
+.material-panel .silo-tube {
+  margin: 7px 12px 12px 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--material-source-line) 78%, transparent);
+  border-radius: 30px 30px 15px 15px / 24px 24px 13px 13px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.48), rgba(255,255,255,.12) 46%, rgba(0,0,0,.36)),
+    repeating-linear-gradient(180deg, color-mix(in srgb, var(--material-source) 12%, transparent) 0 1px, transparent 1px 18px),
+    linear-gradient(180deg, rgba(255,255,255,.04), var(--material-glass) 46%, rgba(0,0,0,.2));
+  box-shadow:
+    0 0 22px rgba(0,0,0,.62) inset,
+    0 0 15px color-mix(in srgb, var(--material-source) 24%, transparent);
+}
+
+.material-panel .silo-tube::before {
+  top: 4px;
+  left: 5px;
+  right: 5px;
+  height: 18px;
+  border-color: color-mix(in srgb, var(--material-source-line) 72%, transparent);
+  background:
+    radial-gradient(ellipse at 50% 44%, color-mix(in srgb, var(--material-source) 18%, transparent), transparent 62%),
+    linear-gradient(90deg, rgba(0,0,0,.28), rgba(255,255,255,.16), rgba(0,0,0,.28));
+  box-shadow: 0 8px 18px rgba(0,0,0,.34);
+}
+
+.material-panel .silo-tube::after {
+  top: 27px;
+  bottom: 10px;
+  left: 8px;
+  right: 8px;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--material-source) 46%, transparent) 0 1px, transparent 1px calc(100% - 1px), color-mix(in srgb, var(--material-source) 46%, transparent) calc(100% - 1px)),
+    repeating-linear-gradient(180deg, transparent 0 17px, color-mix(in srgb, var(--material-source) 34%, transparent) 17px 18px);
+  opacity: .58;
+  pointer-events: none;
+  display: block !important;
+}
+
+.material-panel .silo-tube i,
+.material-panel .silo-card .silo-tube i,
+.material-panel .silo-card .silo-tube.filled i,
+.material-panel .silo-card .silo-tube.dumping i,
+.material-panel .silo-card.radar-mode .silo-tube i,
+.material-panel .silo-card.radar-mode .silo-tube.filled i,
+.material-panel .silo-card.radar-mode .silo-tube.dumping i {
+  left: 7px !important;
+  right: 7px !important;
+  bottom: 8px !important;
+  min-height: 4px !important;
+  border-radius: 16px 16px 11px 11px !important;
+  clip-path: polygon(0 8%, 8% 5%, 17% 9%, 27% 4%, 38% 8%, 49% 5%, 60% 9%, 72% 4%, 84% 8%, 93% 5%, 100% 8%, 100% 100%, 0 100%) !important;
+  background-color: var(--material-fill-bottom) !important;
+  background-image:
+    radial-gradient(ellipse at 50% 0, var(--material-chip), transparent 38%),
+    radial-gradient(ellipse at 20% 24%, color-mix(in srgb, var(--material-fill-top) 42%, transparent) 0 8%, transparent 17%),
+    radial-gradient(ellipse at 68% 30%, color-mix(in srgb, var(--material-fill-mid) 46%, transparent) 0 9%, transparent 18%),
+    radial-gradient(ellipse at 38% 66%, rgba(0,0,0,.22) 0 8%, transparent 18%),
+    repeating-linear-gradient(135deg, color-mix(in srgb, var(--material-source) 12%, transparent) 0 1px, transparent 1px 17px),
+    linear-gradient(180deg, var(--material-fill-top), var(--material-fill-mid) 42%, var(--material-fill-bottom)) !important;
+  background-size: 100% 22px, 56px 42px, 68px 46px, 70px 48px, 30px 30px, 100% 100% !important;
+  background-position: center top, 4px 7px, 34px 18px, 64px 5px, 0 0, center center !important;
+  background-repeat: repeat !important;
+  filter: saturate(.96) contrast(1.06) !important;
+  box-shadow:
+    0 0 18px rgba(0,0,0,.46) inset,
+    0 0 13px color-mix(in srgb, var(--material-source) 22%, transparent) !important;
+  animation: none !important;
+}
+
+.material-panel .silo-tube i::before {
+  display: block !important;
+  left: -5px;
+  right: -5px;
+  top: -10px;
+  height: 19px;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 22% 52%, var(--material-chip) 0 7%, transparent 14%),
+    radial-gradient(ellipse at 52% 46%, color-mix(in srgb, var(--material-fill-top) 42%, transparent) 0 9%, transparent 17%),
+    linear-gradient(180deg, rgba(255,255,255,.16), var(--material-fill-top) 36%, var(--material-fill-mid));
+  animation: none !important;
+}
+
+.material-panel .silo-tube i::after,
+.material-panel .silo-card.radar-mode .silo-tube i::after {
+  display: block !important;
+  content: "";
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.16), transparent 34%, rgba(255,255,255,.09) 50%, transparent 66%, rgba(0,0,0,.2)),
+    linear-gradient(180deg, color-mix(in srgb, var(--material-source) 16%, transparent), transparent 42%);
+  pointer-events: none !important;
+  z-index: 2;
+}
+
+.material-panel .silo-card.radar-mode .silo-tube {
+  border-color: color-mix(in srgb, var(--material-source-line) 86%, transparent);
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--material-source) 25%, transparent),
+    0 0 42px color-mix(in srgb, var(--material-source) 16%, transparent) inset;
+}
+
+.material-panel .silo-card strong {
+  color: color-mix(in srgb, var(--text) 84%, var(--material-source));
+}
+
+.material-panel .silo-card small {
+  color: var(--material-source);
+}
