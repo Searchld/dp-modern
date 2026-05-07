@@ -314,12 +314,13 @@
                 <div class="silo-row">
                   <button
                     v-for="item in filteredMaterials"
-                    :key="`${item.lname}-${item.shitype}`"
+                    :key="`${materialType}-${item.lname}-${item.shitype}`"
                     class="silo-card"
-                  :class="{ offline: String(item.status) !== '0', 'radar-mode': materialType === 'ld' }"
+                    :class="[materialSourceClass, { offline: String(item.status) !== '0' }]"
                     @click="openMaterialDetail(item)"
                   >
-                    <span class="ore-ton">矿石：{{ numberText(item.ton) }}吨</span>
+                    <span class="source-badge">{{ materialSourceLabel }}</span>
+                    <span class="ore-ton">{{ materialOreLabel(item) }}：{{ numberText(item.ton) }}吨</span>
                     <div class="silo-scale">
                       <em v-for="scale in getScales(item.all_quantity)" :key="scale">{{ scale }}</em>
                     </div>
@@ -337,7 +338,7 @@
                       <b>{{ numberText(item.now_quantity) }}米</b>
                     </div>
                     <strong>{{ item.lname }}</strong>
-                    <small>{{ item.shitype }}</small>
+                    <small>{{ item.shitypename || item.shitype }}</small>
                   </button>
                 </div>
               </div>
@@ -348,12 +349,13 @@
             <div class="silo-row" v-else>
               <button
                 v-for="item in filteredMaterials"
-                :key="`${item.lname}-${item.shitype}`"
+                :key="`${materialType}-${item.lname}-${item.shitype}`"
                 class="silo-card"
-                :class="{ offline: String(item.status) !== '0', 'radar-mode': materialType === 'ld' }"
+                :class="[materialSourceClass, { offline: String(item.status) !== '0' }]"
                 @click="openMaterialDetail(item)"
               >
-                <span class="ore-ton">矿石：{{ numberText(item.ton) }}吨</span>
+                <span class="source-badge">{{ materialSourceLabel }}</span>
+                <span class="ore-ton">{{ materialOreLabel(item) }}：{{ numberText(item.ton) }}吨</span>
                 <div class="silo-scale">
                   <em v-for="scale in getScales(item.all_quantity)" :key="scale">{{ scale }}</em>
                 </div>
@@ -371,7 +373,7 @@
                   <b>{{ numberText(item.now_quantity) }}米</b>
                 </div>
                 <strong>{{ item.lname }}</strong>
-                <small>{{ item.shitype }}</small>
+                <small>{{ item.shitypename || item.shitype }}</small>
               </button>
             </div>
           </section>
@@ -713,6 +715,7 @@ import type { CameraItem, CarsLogItem, DeviceStatus, MaterialLevel, WarningItem,
 import { Video, Radio, Bell, HardDrive } from 'lucide-vue-next'
 
 type ThemeName = 'command' | 'hologram'
+type MaterialStatsType = 'ai' | 'ld'
 type VideoDisplayMode = 'grid' | 'focus'
 type EChartsInstance = ReturnType<typeof echarts.init>
 type DetailRow = { label: string; value: string | number }
@@ -1407,7 +1410,7 @@ function handleWarningBadge(type: string) {
   }
 }
 
-function setMaterialType(type: 'ai' | 'ld') {
+function setMaterialType(type: MaterialStatsType) {
   materialType.value = type
   void refreshMaterials()
 }
@@ -1749,6 +1752,18 @@ function splitCount(value: number, index: 0 | 1) {
   return index === 0 ? Math.ceil(count / 2) : Math.floor(count / 2)
 }
 
+function materialSourceText(type: MaterialStatsType) {
+  return type === 'ai' ? 'AI视觉识别' : '雷达实测'
+}
+
+const materialSourceLabel = computed(() => materialSourceText(materialType.value))
+const materialSourceClass = computed(() => materialType.value === 'ai' ? 'ai-mode' : 'radar-mode')
+
+function materialOreLabel(item: MaterialLevel) {
+  const typeText = String(item.shitypename || item.shitype || '').trim()
+  return typeText || '矿石'
+}
+
 function scrollSilo(direction: number) {
   const wrapper = siloScrollRef.value
   if (!wrapper) return
@@ -1762,10 +1777,11 @@ function scrollSilo(direction: number) {
 function openMaterialDetail(item: MaterialLevel) {
   detail.value = {
     title: item.lname,
-    subtitle: `${materialType.value === 'ai' ? 'AI' : '雷达'}料位下钻`,
+    subtitle: `${materialSourceText(materialType.value)}料位下钻`,
     rows: [
-      { label: '物料类型', value: item.shitype },
-      { label: '矿石吨数', value: `${numberText(item.ton)} 吨` },
+      { label: '统计来源', value: materialSourceText(materialType.value) },
+      { label: '物料类型', value: item.shitypename || item.shitype },
+      { label: `${materialOreLabel(item)}吨数`, value: `${numberText(item.ton)} 吨` },
       { label: '当前料位', value: `${numberText(item.now_quantity)} 米` },
       { label: '容量上限', value: `${numberText(item.all_quantity)} 米` },
       { label: '占比', value: `${Math.round(levelPercent(item))}%` },

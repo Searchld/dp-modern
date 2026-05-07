@@ -82,6 +82,18 @@ export const mockMaterials: MaterialLevel[] = [
   { lname: '备用料仓', ton: 120.3, shitype: '矿石', shitypename: '矿石', status: 0, all_quantity: 100, now_quantity: 12, dept: '' }
 ]
 
+export const mockRadarMaterials: MaterialLevel[] = mockMaterials.map(item => {
+  const maxLevel = Number(item.all_quantity || 0)
+  const level = Number(item.now_quantity || 0)
+  const adjustedLevel = maxLevel ? Math.min(maxLevel, Math.max(0, level + (level >= maxLevel ? 0 : 0.42))) : level
+
+  return {
+    ...item,
+    ton: Number((Number(item.ton || 0) * 0.98).toFixed(2)),
+    now_quantity: Number(adjustedLevel.toFixed(2))
+  }
+})
+
 export const mockLive: CameraCategory[] = [
   {
     label: '一坑',
