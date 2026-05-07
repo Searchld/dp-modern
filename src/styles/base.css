@@ -4368,3 +4368,194 @@ button {
 .material-panel .silo-card small {
   color: var(--material-source);
 }
+
+/* 参考柱状料位样式：用深色圆柱、橙色料位和清晰刻度强化溜井料位变化。 */
+.material-panel .silo-row {
+  gap: 8px;
+  padding: 8px 12px 12px;
+}
+
+.material-panel .silo-scroll-container .silo-row {
+  gap: 8px;
+  padding: 8px 0 12px;
+}
+
+.material-panel .silo-card {
+  flex-basis: 118px;
+  min-width: 118px;
+  grid-template-columns: 28px 1fr;
+  grid-template-rows: 22px 1fr 22px 17px;
+  gap: 0 3px;
+  padding: 6px 5px 7px;
+  border-color: rgba(255, 168, 53, .18) !important;
+  background:
+    linear-gradient(90deg, transparent calc(100% - 1px), rgba(255, 168, 53, .12) calc(100% - 1px)),
+    radial-gradient(circle at 50% 12%, rgba(255, 148, 35, .12), transparent 52%),
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(0,0,0,.16) 42%, rgba(0,0,0,.3)) !important;
+  box-shadow: 0 0 16px rgba(0,0,0,.34) inset;
+}
+
+.material-panel .silo-card::before {
+  inset: 0;
+  border-color: rgba(255, 168, 53, .1);
+  background: linear-gradient(180deg, rgba(255, 168, 53, .08), transparent 34%, rgba(255, 168, 53, .06));
+}
+
+.material-panel .ore-ton {
+  min-width: 0;
+  justify-self: start;
+  max-width: 108px;
+  padding: 0;
+  border: 0;
+  color: #ff9f2e;
+  background: transparent;
+  box-shadow: none;
+  font-size: 11px;
+  line-height: 1.1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.material-panel .silo-scale {
+  margin: 8px 0 13px;
+  color: rgba(255, 226, 178, .72);
+}
+
+.material-panel .silo-scale em {
+  width: 26px;
+  padding-right: 5px;
+  font-size: 10px;
+}
+
+.material-panel .silo-scale em::after {
+  width: 4px;
+  background: rgba(255, 186, 92, .4);
+}
+
+.material-panel .silo-tube {
+  width: 50px;
+  justify-self: center;
+  margin: 4px 7px 9px 0;
+  overflow: visible;
+  border: 1px solid rgba(255, 176, 72, .22);
+  border-radius: 24px / 13px;
+  background:
+    linear-gradient(90deg, rgba(4, 8, 10, .94), rgba(34, 39, 40, .9) 35%, rgba(72, 74, 69, .36) 51%, rgba(10, 14, 15, .92) 72%, rgba(0,0,0,.96)),
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.08) 36%, rgba(0,0,0,.34));
+  box-shadow:
+    0 0 22px rgba(0,0,0,.72) inset,
+    0 0 12px rgba(255, 128, 24, .08);
+}
+
+.material-panel .silo-tube::before,
+.material-panel .silo-tube::after {
+  left: -1px;
+  right: -1px;
+  height: 16px;
+  border: 1px solid rgba(255, 176, 72, .26);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(84, 88, 82, .38), transparent 56%),
+    linear-gradient(90deg, rgba(0,0,0,.66), rgba(79, 83, 78, .7) 50%, rgba(0,0,0,.72));
+  box-shadow: 0 0 12px rgba(0,0,0,.5) inset;
+  opacity: 1;
+  display: block !important;
+}
+
+.material-panel .silo-tube::before {
+  top: -1px;
+  z-index: 3;
+}
+
+.material-panel .silo-tube::after {
+  bottom: -2px;
+  z-index: 4;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 145, 28, .54), transparent 54%),
+    linear-gradient(90deg, rgba(0,0,0,.72), rgba(80, 82, 76, .72) 50%, rgba(0,0,0,.76));
+}
+
+.material-panel .silo-tube i,
+.material-panel .silo-card .silo-tube i,
+.material-panel .silo-card .silo-tube.filled i,
+.material-panel .silo-card .silo-tube.dumping i,
+.material-panel .silo-card.radar-mode .silo-tube i,
+.material-panel .silo-card.radar-mode .silo-tube.filled i,
+.material-panel .silo-card.radar-mode .silo-tube.dumping i {
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  min-height: 0 !important;
+  border-radius: 0 0 22px 22px / 0 0 12px 12px !important;
+  clip-path: none !important;
+  background-color: #f47b16 !important;
+  background-image:
+    linear-gradient(90deg, rgba(121, 48, 4, .24), rgba(255, 198, 99, .72) 50%, rgba(136, 52, 3, .26)),
+    linear-gradient(180deg, #ffb15c 0%, #ff8b1e 28%, #f07812 68%, #cf5d08 100%) !important;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  box-shadow:
+    0 0 14px rgba(80, 28, 0, .5) inset,
+    0 0 10px rgba(255, 126, 18, .3) !important;
+  filter: saturate(1.08) contrast(1.04) !important;
+  z-index: 2 !important;
+}
+
+.material-panel .silo-tube i::before {
+  display: block !important;
+  content: "";
+  left: 0;
+  right: 0;
+  top: -8px;
+  height: 16px;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(255, 208, 116, .72), transparent 42%),
+    linear-gradient(90deg, #a94305, #ffab50 50%, #bf4f07);
+  box-shadow: 0 0 8px rgba(255, 120, 20, .36) inset;
+  animation: none !important;
+}
+
+.material-panel .silo-tube i::after,
+.material-panel .silo-card.radar-mode .silo-tube i::after {
+  display: block !important;
+  content: "";
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
+  background: linear-gradient(90deg, rgba(0,0,0,.16), transparent 35%, rgba(255,255,255,.18) 50%, transparent 66%, rgba(0,0,0,.22));
+}
+
+.material-panel .silo-tube b {
+  padding: 0;
+  border: 0;
+  color: #fff;
+  background: transparent;
+  box-shadow: none;
+  font-size: 16px;
+  font-weight: 800;
+  text-shadow: 0 1px 4px #000, 0 0 6px rgba(0,0,0,.85);
+  backdrop-filter: none;
+}
+
+.material-panel .silo-card strong {
+  color: rgba(255,255,255,.92);
+  font-size: 12px;
+  line-height: 1.1;
+}
+
+.material-panel .silo-card small {
+  color: rgba(255, 176, 72, .78);
+  font-size: 10px;
+  line-height: 1;
+}
+
+.dashboard-board[data-theme="hologram"] .material-panel .silo-card {
+  border-color: rgba(63, 213, 255, .2) !important;
+  background:
+    linear-gradient(90deg, transparent calc(100% - 1px), rgba(63, 213, 255, .12) calc(100% - 1px)),
+    radial-gradient(circle at 50% 12%, rgba(63, 213, 255, .1), transparent 52%),
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(0,0,0,.16) 42%, rgba(0,0,0,.3)) !important;
+}
