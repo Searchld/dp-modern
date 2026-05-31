@@ -1,93 +1,81 @@
 # Industrial AI Vision Platform
 
-An open-source industrial AI platform for smart mining, real-time video analytics, equipment monitoring, and operational visualization.
+Open-source Industrial AI Platform for Smart Mining, Real-Time Video Analytics, Computer Vision, and Operational Monitoring.
 
-This project combines:
+## Overview
 
-- Real-time RTSP video streaming
-- YOLOv8 object detection
-- ByteTrack multi-object tracking
-- GStreamer accelerated video pipeline
-- Industrial event detection
-- Smart mining workflow automation
-- OPC UA / PLC integration
-- Real-time dashboard visualization
-- Production and safety monitoring
+Industrial AI Vision Platform is a practical framework designed for industrial environments, combining computer vision, video streaming, industrial automation, and operational dashboards.
 
-## Architecture
+The platform supports real-time monitoring, AI inference, event detection, production analytics, and safety supervision for mining and industrial scenarios.
 
-RTSP Cameras
-↓
-GStreamer Pipeline
-↓
-YOLOv8 Inference
-↓
-ByteTrack Tracking
-↓
-Business Event Engine
-↓
-REST API
-↓
-Dashboard Visualization
+## Key Features
 
-## Features
+### AI Vision
 
-### Video Analytics
+- YOLOv8 Object Detection
+- ByteTrack Multi-Object Tracking
+- Vehicle Tracking
+- Personnel Detection
+- Safety Monitoring
+- Custom Model Deployment
 
-- RTSP video ingestion
-- RTMP video publishing
-- Hardware accelerated decoding
-- CUDA accelerated inference
-- Multi-stream processing
+### Video Streaming
 
-### AI Detection
+- RTSP Input
+- RTMP Output
+- GStreamer Pipeline
+- Hardware Accelerated Decoding
+- CUDA Inference
+- Multi-Stream Processing
 
-- Vehicle detection
-- Personnel detection
-- Safety equipment monitoring
-- Industrial object recognition
-- Custom YOLO model deployment
+### Industrial Automation
 
-### Industrial Tracking
-
-- Vehicle tracking
-- Loading and unloading detection
-- Event correlation
-- State machine driven workflows
-- Long-term object association
+- OPC UA Integration
+- PLC Connectivity
+- Event-Driven Workflows
+- State Machine Processing
+- Alarm Management
 
 ### Smart Mining
 
-- Ore unloading monitoring
-- Vehicle trip statistics
-- Safety supervision
-- Production monitoring
-- Intelligent operation analysis
+- Ore Unloading Detection
+- Vehicle Trip Statistics
+- Production Monitoring
+- Safety Supervision
+- Intelligent Event Analysis
 
 ### Dashboard
 
-- Real-time monitoring
-- ECharts visualization
-- Alarm statistics
-- Production analytics
-- Historical trend analysis
+- Real-Time Visualization
+- ECharts Analytics
+- Alarm Statistics
+- Production Reports
+- Historical Trends
+
+## Architecture
+
+text RTSP Camera       │       ▼ GStreamer Pipeline       │       ▼ YOLOv8 Inference       │       ▼ ByteTrack Tracking       │       ▼ Business Event Engine       │       ▼ REST API       │       ▼ Dashboard 
+
+## Project Structure
+
+text industrial-ai-platform ├── frontend ├── backend ├── vision ├── docs ├── examples └── README.md 
 
 ## Technology Stack
 
-Frontend
+### Frontend
 
 - Vue3
 - TypeScript
-- ECharts
 - Vite
+- ECharts
 
-Backend
+### Backend
 
 - Java
 - Spring Boot
 - MySQL
 
-AI Vision
+### AI Vision
 
 - Python
 - YOLOv8
@@ -96,14 +84,28 @@ AI Vision
 - CUDA
 - GStreamer
 
-Industrial Protocols
+### Industrial Protocols
 
 - OPC UA
 - PLC Integration
 
-## Project Goals
+## Use Cases
 
-This project aims to provide a reusable open-source infrastructure for industrial AI applications, including smart mining, industrial automation, safety monitoring, and real-time operational intelligence.
+- Smart Mining
+- Industrial Automation
+- Safety Monitoring
+- Vehicle Tracking
+- Production Analytics
+- Real-Time Video Intelligence
+
+## Roadmap
+
+- [ ] Multi-Camera Management
+- [ ] Distributed Inference
+- [ ] Model Management
+- [ ] Edge Deployment
+- [ ] Industrial Knowledge Base
+- [ ] AI Assistant Integration
 
 ## License
 
